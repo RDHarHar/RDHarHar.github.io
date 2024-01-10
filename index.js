@@ -31,19 +31,3 @@ function totalCombatLevel(baseCombat, meleeLevel, rangedLevel,magicLevel){
     return Math.floor((highestLevel * 0.325)+baseCombat)
 }
 
-var attack = parseInt(document.getElementById("attack"));
-console.log("attack = "+ attack);
-var strength = document.getElementById("strength");
-var defense = document.getElementById("defense");
-var hitpoints = document.getElementById("hitpoints");
-var ranged = document.getElementById("ranged");
-var magic = document.getElementById("magic");
-var prayer = document.getElementById("prayer");
-
-base = baseCombat(defense, hitpoints, prayer);
-melee = meleeLevel(attack,strength);
-range = rangedLevel(ranged);
-mag = magicLevel(magic);
-totalCombatLevel(base, melee, range, mag);
-
-document.getElementById("result").innerHTML = totalCombatLevel;

@@ -11,59 +11,8 @@
     input{text-align: center;}
 </style>
 <body>
-    <h1>Combat Calculator</h1>
+    <h1>Ryan Harwick's Website!</h1>
 
-    Enter Attack
-    <br><input id="attack" type="text" placeholder="1"><br>
-    <br>Enter Strength
-    <br><input id="strength" type="text" placeholder="1"><br>
-    <br>Enter Defense
-    <br><input id="defense" type="text" placeholder="1"><br>
-    <br>Enter Hitpoints
-    <br><input id="hitpoints" type="text" placeholder="1"><br>
-    <br>Enter Ranged
-    <br><input id="ranged" type="text" placeholder="1"><br>
-    <br>Enter Magic
-    <br><input id="magic" type="text" placeholder="1"><br>
-    <br>Enter Prayer
-    <br><input id="prayer" type="text" placeholder="1"><br>
-
-    <br><br><button onclick="calculateCombat()">Calculate</button>
-
-    <h1 id="message"></h1>
-
-    <script>
-        function calculateCombat(){
-            let attack = parseInt(document.getElementById("attack").value);
-            let strength = parseInt(document.getElementById("strength").value);
-            let defense = parseInt(document.getElementById("defense").value);
-            let hitpoints = parseInt(document.getElementById("hitpoints").value);
-            let ranged = parseInt(document.getElementById("ranged").value);
-            let magic = parseInt(document.getElementById("magic").value);
-            let prayer = parseInt(document.getElementById("prayer").value);
-
-            baseCombat = (0.25 * (defense + hitpoints + Math.floor(prayer * 0.5)));
-            meleeCombat = attack + strength;
-            rangedCombat = ranged * 1.5;
-            magicCombat = magic * 1.5;
-            highestCombat = meleeCombat
-
-            if (meleeCombat > rangedCombat && meleeCombat > magicCombat)
-            {
-                highestCombat = meleeCombat;
-            }
-            if (rangedCombat > meleeCombat && rangedCombat > magicCombat)
-            {
-                highestCombat = rangedCombat;
-            }
-            if (magicCombat > meleeCombat && magicCombat > rangedCombat)
-            {
-                highestCombat = magicCombat
-            }
-            totalCombat = Math.floor((highestCombat * 0.325)+baseCombat)
-
-            document.getElementById("message").innerHTML = "Combat level: " + totalCombat
-        }
-    </script>
+    <a href="melvorCalc.html">Melvor Combat Level Calculator</a>
 </body>
 </html>
