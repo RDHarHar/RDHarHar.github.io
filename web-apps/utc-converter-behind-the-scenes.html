@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-theme="graphite">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My notes on creating the UTC and epoch converter, and the programming lessons that came with it.">
+  <title>Behind the scenes - Code and lessons | Ryan Harwick</title>
+  <script src="../assets/site.js?v=0.9.4"></script>
+  <link rel="stylesheet" href="../assets/site.css?v=0.9.4">
+  <link rel="stylesheet" href="../assets/utc-converter.css?v=0.9.4">
+  <link rel="stylesheet" href="../assets/build-notes.css?v=0.9.4">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <header class="header">
+      <a class="brand" href="../index.html#home"><span class="monogram" aria-hidden="true">rh<span>_</span></span><span>Ryan Harwick</span></a>
+      <div class="navigation">
+        <nav class="section-links" aria-label="Site navigation">
+          <a href="../index.html#home">Home</a>
+          <a href="../index.html#about">About me</a>
+          <a href="../index.html#reports">Reports</a>
+          <a href="../index.html#web-apps" aria-current="location">Web Apps</a>
+          <a href="../index.html#gaming">Gaming</a>
+          <a href="../index.html#settings">Settings</a>
+        </nav>
+        <a class="github" href="https://github.com/RDHarHar" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </header>
+    <main id="main" class="build-notes">
+      <a class="back-link" href="utc-converter.html">← Back to the converter</a>
+      <article>
+        <header class="notes-header">
+          <p class="eyebrow">Behind the scenes - Code and lessons</p>
+          <h1>I started with a clock.<br><span>Time had other plans.</span></h1>
+          <p class="deck">I wanted a small, useful first web app. A time converter seemed like a good place to start. It was. It also had a few more moving parts than the two boxes in my sketch suggested.</p>
+          <p class="notes-meta">By Ryan Harwick · <time datetime="2026-09-15">September 15, 2026</time></p>
+        </header>
+        <div class="notes-layout">
+          <div class="notes-copy">
+            <section id="starting-point">
+              <h2>I started with a sketch, then built the first version.</h2>
+              <p>My first mockup was pretty basic: local time and UTC at the top, then two boxes underneath. I built the layout around that, added the live clocks, and connected the inputs to the conversion logic. Put a time in one side, get the other version out. A useful first entry under Web Apps.</p>
+              <p>Once the UTC conversion was working, I realized the other piece I had in mind was <strong>epoch time</strong>—the long string of numbers. I added timestamp parsing, then a separate form for converting a date back into epoch time. After trying the layout, I moved those tools below the original two panels.</p>
+              <p class="lesson">My takeaway: get a small version working, use it, and build from there. I learn more from trying the code than staring at the sketch.</p>
+            </section>
+            <section id="three-views">
+              <h2>Three ways to describe the same moment.</h2>
+              <p>I found it helpful to separate the moment itself from how I display it. Local time is what the clock says in my time zone. UTC gives me a shared reference. Unix epoch time counts from January 1, 1970 at midnight UTC.</p>
+              <p>The seconds-versus-milliseconds part matters. Two numbers can refer to exactly the same moment while one is a thousand times larger. I added an explicit unit selector and made the parsing code use that choice. Guessing based on the length of the number felt like a good way to create a very confident wrong answer.</p>
+              <p>I also kept the date attached to the time. A conversion that says “9:30 PM” is missing something fairly important if that means yesterday.</p>
+              <p class="lesson">I want the inputs to say what they mean, and the outputs to show enough context that I don't have to guess.</p>
+            </section>
+            <section id="clock-changes">
+              <h2>Apparently, some times don't happen.</h2>
+              <p>This was the interesting part. When clocks move forward, some local times are skipped. When they move back, some happen twice. A date and a time can look perfectly reasonable and still need another question before there's one correct answer.</p>
+              <p>I added a validation check for skipped times so the converter returns an error instead of silently moving the clock forward. For repeated times, I kept both possible results and added a first-or-second occurrence selector. That extra choice matters: the same local time can point to two different timestamps.</p>
+              <p>The tests also cover a half-hour clock change and a time zone with a quarter-hour offset. “Just add or subtract a few hours” stopped sounding like a complete plan pretty quickly.</p>
+              <p class="lesson">The lesson I want to keep: when an input is ambiguous, make the choice visible. A clean-looking answer isn't useful if it's answering the wrong question.</p>
+            </section>
+            <section id="under-the-hood">
+              <h2>I kept the moving parts separate.</h2>
+              <p>I built the page with HTML for the structure, CSS for the layout and colors, and JavaScript for the clocks and conversions. Everything runs in the browser. There's no account, database, or server calculation involved in turning one time into another.</p>
+              <p>I kept the conversion rules separate from the code that responds to buttons and updates the results. That means moving the panels around doesn't require changing how the math works. The dedicated date-to-epoch panel can use the same conversion helpers as the original panels.</p>
+              <p>The colors come from the site's shared theme settings. I didn't want every new app to become its own little island with a different look and no way back to the rest of the site. Adding the full navigation to the converter was part of making it feel like it belonged here.</p>
+              <p class="lesson">I want each part to have a clear job. It makes the next change easier to reason about, whether I'm changing the layout or adding another conversion.</p>
+            </section>
+            <section id="testing">
+              <h2>I needed more than “looks right.”</h2>
+              <p>A current-time conversion is a useful starting check. It doesn't tell me much about midnight, a leap day, a repeated hour, or a timestamp from before 1970.</p>
+              <p>I added 13 automated tests covering those kinds of cases, including invalid inputs, seconds and milliseconds, and time-zone changes. I also checked the page in the browser: do the buttons work, do the results update, and does the layout still fit on a small screen?</p>
+              <p>I also wired input changes to clear the previous result. It's a small bit of behavior, but it keeps an old answer from sitting there looking like it belongs to the new input.</p>
+              <p>I still rely on the device's clock and the browser's time-zone information. Those are useful boundaries to understand; passing a set of tests doesn't make the page independent of the system it runs on.</p>
+            </section>
+            <section id="code">
+              <h2>How I organized the code.</h2>
+              <p>I split the app into a few small pieces so I can change one part without digging through everything else:</p>
+              <div class="code-map">
+                <a href="../assets/utc-core.js?v=0.9.4" target="_blank" rel="noopener">The conversion rules ↗<small>Reading inputs, handling time zones, and translating epoch values.</small></a>
+                <a href="../assets/utc-converter.js?v=0.9.4" target="_blank" rel="noopener">The page behavior ↗<small>Live clocks, buttons, result updates, and validation messages.</small></a>
+                <a href="../assets/utc-converter.css?v=0.9.4" target="_blank" rel="noopener">The layout ↗<small>The panels, fields, and adjustments for smaller screens.</small></a>
+                <a href="../tests/utc-converter.test.cjs" target="_blank" rel="noopener">The conversion tests ↗<small>Examples that help catch mistakes when the code changes.</small></a>
+              </div>
+            </section>
+            <section class="notes-closing">
+              <h2>A small app, with a few lessons attached.</h2>
+              <p>I started with a couple of boxes and a useful idea. The result gave me a better way to think about clear inputs, shared logic, and testing the awkward cases. That feels like a pretty good start for the first web app.</p>
+              <p>Building things. Breaking things. Learning along the way.</p>
+              <a href="utc-converter.html">Back to my UTC & Epoch Converter ↗</a>
+            </section>
+          </div>
+          <aside class="notes-toc"><h2>In these notes</h2><nav aria-label="Article sections"><a href="#starting-point">My starting point</a><a href="#three-views">Making time explicit</a><a href="#clock-changes">The clock-change problem</a><a href="#under-the-hood">How the pieces fit</a><a href="#testing">Checking the awkward cases</a><a href="#code">Following the code</a></nav></aside>
+        </div>
+      </article>
+    </main>
+    <footer><span>Ryan Harwick <span class="footer-dot">/</span> A work in progress.</span><a href="utc-converter.html">Back to the converter ↗</a></footer>
+  </div>
+</body>
+</html>

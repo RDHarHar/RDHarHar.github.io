@@ -1,0 +1,29 @@
+.build-notes { padding: 25px 0 35px; }
+.notes-header { max-width: 700px; padding: 35px 0 28px; }
+.notes-header .eyebrow { color: var(--accent); font-size: 9px; }
+.notes-header h1 { font-size: clamp(31px, 4vw, 46px); margin: 15px 0; }
+.notes-header .deck { font-size: 16px; color: var(--muted); line-height: 1.8; margin: 0; }
+.notes-meta { margin-top: 20px; color: var(--muted); font: 10px/1.7 'Courier New', monospace; }
+.notes-layout { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 55px; align-items: start; border-top: 1px solid var(--line); padding-top: 30px; }
+.notes-copy section { margin-bottom: 35px; scroll-margin-top: 24px; }
+.notes-copy h2 { font-size: 23px; line-height: 1.35; font-weight: 500; letter-spacing: -.5px; margin: 0 0 16px; }
+.notes-copy p { color: var(--muted); font-size: 14px; line-height: 1.95; margin: 0 0 16px; }
+.notes-copy strong { color: var(--text); font-weight: 500; }
+.lesson { padding: 16px 20px; border-left: 2px solid var(--accent); background: var(--surface); border-radius: 0 4px 4px 0; }
+.notes-copy .lesson { color: var(--text); font-size: 13px; }
+.notes-toc { position: sticky; top: 24px; }
+.notes-toc h2 { font-size: 11px; font-weight: 500; margin: 0 0 14px; }
+.notes-toc a { display: block; padding: 7px 0; font-size: 11px; color: var(--muted); }
+.notes-toc a:hover { color: var(--accent); }
+.code-map { border: 1px solid var(--line); border-radius: 5px; padding: 5px 18px; }
+.code-map a { display: block; padding: 14px 0; color: var(--accent); font-size: 12px; }
+.code-map a+a { border-top: 1px solid var(--line); }
+.code-map small { display: block; color: var(--muted); font-size: 11px; line-height: 1.7; margin-top: 5px; }
+.notes-closing { border-top: 1px solid var(--line); padding-top: 24px; }
+.notes-closing a { color: var(--accent); font-size: 13px; }
+@media (max-width: 760px) {
+  .notes-layout { grid-template-columns: 1fr; gap: 22px; }
+  .notes-toc { position: static; grid-row: 1; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .notes-toc nav { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .notes-header { padding: 28px 0; }
+}

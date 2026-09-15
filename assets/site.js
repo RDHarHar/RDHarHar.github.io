@@ -59,7 +59,7 @@
       if (!tabs.length) return;
       const id = location.hash.slice(1);
       if (id === 'main') return; // A skip link must not change the open section.
-      showTab(tabs.some(tab => tab.id === `${id}-tab`) ? id : 'about');
+      showTab(tabs.some(tab => tab.id === `${id}-tab`) ? id : 'home');
     };
     window.addEventListener('hashchange', restoreTab);
     window.addEventListener('storage', event => {

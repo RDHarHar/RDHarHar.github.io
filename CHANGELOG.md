@@ -4,6 +4,263 @@ Development versions describe completed local work. A version heading alone does
 commit, or deployment exists. Entries use America/New_York time with an explicit UTC offset.
 Keep newest versions first and record exact files, changes, validation, and outstanding limitations.
 
+## 0.9.4 — Remove Design studies footer links
+
+- Recorded: `2026-09-15T12:27:47-04:00` (America/New_York).
+- Status: publication requested on 2026-09-15; deployment verification pending.
+- Release preparation: fetched the unchanged remote branch, passed all 13 converter tests and JavaScript
+  syntax checks, verified local page links/assets, and versioned app script/stylesheet URLs with `?v=0.9.4`
+  so returning visitors load the new Home navigation, converter code, and orange theme together.
+- `index.html` and `concepts/workbench.html`: removed the “Design studies” footer anchors,
+  retaining the owner/work-in-progress text. Other current pages did not have this footer link.
+- Concept files remain available at their existing URLs. Updated project guidance and version documentation.
+- Verified both footer links are removed; Git whitespace check passed. No behavior or styling changes.
+
+## 0.9.3 — Direct developer voice in build notes
+
+- Recorded: `2026-09-15T12:23:37-04:00` (America/New_York).
+- Status: local, not committed/pushed/deployed.
+- Request: make the behind-the-scenes article read as direct first-person coding notes rather than requests for work.
+- `web-apps/utc-converter-behind-the-scenes.html`: rewrote the opening around building the layout, clocks,
+  and conversion logic; replaced “asked for UTC” and conversation framing with implementation and iteration.
+  Made the unit selector, skipped/repeated-time handling, tests, and stale-result cleanup active first-person
+  descriptions. Renamed the code-map heading to “How I organized the code.”
+- `AGENTS.md` and `README.md`: recorded the refined voice preference for future writing.
+- Reviewed the copy against existing behavior; no new anecdotes or technical functionality were introduced.
+  HTML structure and links are unchanged. Git whitespace check passed.
+
+## 0.9.2 — Refresh cached default theme styles
+
+- Recorded: 2026-09-15 (America/New_York), following the report that the local preview still appeared green.
+- Status: local, not committed/pushed/deployed.
+- Confirmed the local server serves orange `#ffab66`; the previously visible green was not reproduced
+  in a fresh browser. Cached CSS was a plausible cause, not conclusively observed in Ryan's browser.
+- `index.html`, all three `about/` pages, `concepts/workbench.html`, and both `web-apps/` pages now request
+  shared styles with `assets/site.css?v=0.9.2`, preserving directory-correct relative paths.
+- Browser verification confirmed Graphite's computed accent is `#ffab66` on Home, the converter, and the
+  behind-the-scenes article, with the versioned stylesheet loaded. Saved alternative palettes remain untouched.
+- `README.md` and `AGENTS.md` document cache refresh behavior. Git whitespace check passed.
+
+## 0.9.1 — Orange default accent
+
+- Recorded: `2026-09-15T12:20:28-04:00` (America/New_York).
+- Status: local, not committed/pushed/deployed; includes all earlier unpublished work.
+- Request: replace the main neon-green color with orange.
+- `assets/site.css`: changed Graphite accent from `#c3f568` to warm orange `#ffab66` and tint from
+  `#293622` to `#39291f`. Shared theme variables apply this to headings, links, controls, clocks,
+  outlines, and illustrations throughout the current site.
+- `index.html` and `concepts/workbench.html`: renamed the Graphite description to “Charcoal & warm orange.”
+- `concepts/gallery.css`: updated Workbench's swatches to orange and warm dark brown.
+- Kept the saved `graphite` key, default, and reset behavior. Other selectable palettes are unchanged.
+- `README.md` and `AGENTS.md`: documented the new main color and local version.
+- Verified orange text contrast exceeds 4.5:1 against both Graphite page and card backgrounds.
+  Git whitespace check passed. No functional JavaScript changes.
+
+## 0.9.0 — Converter behind-the-scenes article
+
+- Recorded: `2026-09-15T12:19:31-04:00` (America/New_York).
+- Status: local, not committed/pushed/deployed; includes earlier unpublished converter and Home work.
+- Request: add a top-of-converter “Behind the scenes - Code and lessons” link and a broad walkthrough
+  in Ryan's voice, covering how it was developed and useful programming/system-design lessons.
+- Clarification: Ryan chose a casual, direct voice with a little humor, focused on decisions and lessons.
+
+### Changes
+
+- `web-apps/utc-converter.html`: added the requested article link beside the Web Apps back link.
+- `assets/utc-converter.css`: added a wrapping top-link row with theme-aware article-link styling.
+- `web-apps/utc-converter-behind-the-scenes.html`: added a first-person article with Ryan's byline/date,
+  full site navigation, converter return links, six-section contents navigation, and a compact source-code map.
+  Covers the mockup/epoch clarification, explicit dates/units, daylight-saving ambiguity, separating conversion
+  rules from UI behavior, shared themes/navigation, tests, stale-result clearing, and device/browser dependencies.
+- `assets/build-notes.css`: added readable article typography, lesson callouts, code links, desktop contents sidebar,
+  mobile contents layout, and shared-theme support.
+- `assets/home.js`: added the article as the newest update; the sidebar still displays the five most recent entries.
+- `index.html` and `concepts/workbench.html`: aligned initial featured-update content and links with the new article.
+- `README.md` and `AGENTS.md`: documented the article, voice preference, maintenance requirements, and local version.
+
+### Verification
+
+- Reviewed article claims against the actual converter code, test suite, and recorded development decisions.
+- Headless Edge checked article layout at 1440px, 768px, 390px, and 320px: no horizontal overflow,
+  one main heading, and six contents links.
+- Verified converter-to-article navigation, internal contents anchors, return to converter, saved Paper theme,
+  and the newest Home update's destination. No JavaScript runtime errors.
+- All article file links and fragment targets resolve. Article, stylesheet, conversion source, and test-source
+  URLs returned HTTP 200 locally. Desktop screenshot visually reviewed.
+- JavaScript syntax and Git whitespace checks passed. Conversion logic was not modified.
+
+## 0.8.0 — Home page with latest updates and information placeholders
+
+- Recorded: `2026-09-15T11:51:00-04:00` (America/New_York).
+- Status: local, not committed/pushed/deployed; includes all unpublished converter versions. Live remains 0.4.0.
+- Request: add Home with a dominant latest-update panel, five recent updates on its right,
+  and FAQ/Quick info sections below, following the supplied layout sketch.
+
+### Implementation
+
+- `index.html`: added Home as the first/default tab, a featured update article, five-entry sidebar,
+  FAQ and Quick info placeholders, Home title, and updated no-script guidance.
+- `assets/home.js`: added five real update summaries (0.8.0, 0.7.1, 0.7.0, 0.6.0, 0.5.0), newest first.
+  Sidebar includes the latest entry. Buttons update featured title, summary, detail bullets, date,
+  category, version, and destination; selected state is exposed with aria-pressed and changes are announced.
+- `assets/site.css`: added a 2.4-to-1 desktop update grid, compact recent cards, two-column lower info area,
+  theme-aware borders/type, and mobile stacking. Featured article grows to match the sidebar height.
+- `assets/site.js`: changed default/unknown-hash fallback to Home while retaining existing section hashes.
+- `concepts/workbench.html`: synchronized Home markup, scripts, and relative links with the homepage.
+- `web-apps/utc-converter.html`: added Home to full site navigation and pointed brand link to Home.
+- `about/job-history.html`, `about/education.html`, `about/skills.html`: added Home links and updated brand destinations.
+- `README.md`, `AGENTS.md`, `CHANGELOG.md`: documented Home, update maintenance, placeholder boundaries,
+  changed default navigation, and local version status.
+
+### Verification
+
+- Headless Edge checked default Home, exactly five sidebar buttons, and no horizontal overflow at
+  1440px, 768px, 390px, and 320px. All five update selections passed at every width.
+- Verified direct About me URLs, the featured About me link, converter links from the Workbench preview,
+  the converter's Home link, and saved Paper theme on Home.
+- No JavaScript runtime errors; syntax and whitespace checks passed. Desktop layout visually reviewed.
+- FAQ and Quick info contain only explicit placeholders, without invented questions or personal details.
+
+## 0.7.1 — Full navigation on converter page
+
+- Recorded: `2026-09-15T11:43:40-04:00` (America/New_York).
+- Status: local, not committed/pushed/deployed; includes earlier unpublished converter changes.
+- Request: restore links to the other site sections at the top of the converter.
+- `web-apps/utc-converter.html`: replaced the two-link header with About me, Reports, Web Apps,
+  Gaming, Settings, and GitHub. Section links target the corresponding homepage hashes; Web Apps
+  is marked as the current location. Uses navigation anchors rather than in-page tab controls.
+- `assets/utc-converter.css`: added matching link spacing, selected/hover states, and mobile wrapping.
+- `README.md` and `AGENTS.md`: documented the full header and local version.
+- Headless Edge verified five section links at 1440px, 768px, 390px, and 320px without horizontal overflow;
+  clicking each opened the correct homepage panel. No runtime errors. Git whitespace check passed.
+- Converter behavior is unchanged.
+
+## 0.7.0 — Lower epoch row and dedicated date-to-epoch converter
+
+- Recorded: `2026-09-15T11:41:49-04:00` (America/New_York).
+- Status: local, not committed/pushed/deployed; includes unpublished 0.5.0–0.6.0 work.
+- Request: change “That long string of numbers.” to “Epoch time,” move it below the UTC/local panels,
+  and add a dedicated converter from a date/time to epoch.
+
+### Changes by file
+
+- `web-apps/utc-converter.html`: renamed the epoch heading; moved its panel to a second two-column row;
+  added an adjacent Date and time form with Local/UTC selector, date/time inputs, repeated-hour selector,
+  Convert to epoch/Use now buttons, validation messages, and both epoch outputs.
+- `assets/utc-converter.js`: implemented the independent reverse form using existing conversion helpers;
+  added result clearing on edits/zone changes, local gap errors, repeated-time selection, exact current-occurrence
+  handling for Use now, and UTC confirmation of the result.
+- `assets/utc-converter.css`: added second-row spacing and reverse-form styles, stacked the timestamp panel's
+  two results within its narrower column, and retained mobile stacking in document order.
+- `README.md`, `AGENTS.md`, `CHANGELOG.md`: documented the new layout, independent reverse flow, and local version.
+
+### Validation
+
+- Headless Edge confirmed all panels fit 1440px, 768px, 390px, and 320px without horizontal overflow.
+- Verified exact heading replacement and that the epoch panel appears below the UTC/local panels.
+- Dedicated reverse checks passed for UTC epoch zero, local offset/second precision, daylight-saving gap rejection,
+  two repeated-hour choices, zone-change cleanup, and Use now.
+- Existing clock, UTC/local, epoch input, validation, theme, and navigation browser checks passed.
+- No JavaScript runtime exceptions; script syntax and Git whitespace checks passed. Desktop layout visually reviewed.
+- Conversion helpers are unchanged; the prior 13 unit-test results remain applicable.
+
+## 0.6.0 — Unix epoch support
+
+- Recorded: `2026-09-15T11:36:40-04:00` (America/New_York).
+- Status: local, not committed/pushed/deployed; includes unpublished 0.5.0 work. Live site remains 0.4.0.
+- Request: add numeric epoch timestamps to the converter page alongside UTC/local time.
+
+### Changes
+
+- Added a live epoch seconds clock with a millisecond snapshot, refreshed every second.
+- Added an epoch input panel above the existing conversion columns with explicit Seconds/Milliseconds selection,
+  unit guidance, Use now, validation, and local/UTC results including dates and offsets.
+- Supported zero and negative integer timestamps and preserved three-digit fractional seconds for millisecond inputs.
+- Rejected malformed, fractional, unsafe, and out-of-range epoch values; supported UTC years remain 1900–9999.
+- Added epoch seconds and milliseconds to both existing date/time conversion results.
+- Upgraded date/time fields and conversion logic from minute to second precision, including repeated local times.
+- Unit changes reconvert the entered value; edits clear stale results. Existing daylight-saving handling is retained.
+- Renamed the page and listing to UTC & Epoch Converter while preserving the existing URL.
+
+### Files
+
+- `web-apps/utc-converter.html`: updated title/metadata, third clock, epoch form/results, second-resolution inputs,
+  and reverse epoch outputs.
+- `assets/utc-core.js`: strict epoch parser, epoch output helper, optional seconds in time parsing, and second-aware local matching.
+- `assets/utc-converter.js`: live epoch updates, both-unit outputs, epoch form/validation/Use now, millisecond rendering,
+  and stale-result cleanup.
+- `assets/utc-converter.css`: epoch clock, full-width input panel, responsive result columns, and epoch output rows.
+- `index.html` and `concepts/workbench.html`: updated converter name and description.
+- `tests/utc-converter.test.cjs`: four additional regression tests covering epoch inputs, validation, precision,
+  and second-resolution date conversions.
+- `README.md`, `AGENTS.md`, `CHANGELOG.md`: updated usage, behavior conventions, and version history.
+
+### Verification
+
+- All 13 Node tests passed, including the nine existing timezone/conversion tests.
+- Headless Edge passed layout checks at 1440px, 768px, 390px, and 320px; existing clock, DST, form, theme,
+  and navigation checks passed with second-resolution results.
+- New browser checks passed for epoch zero/date rollover, millisecond precision, negative epochs,
+  invalid-input cleanup, reverse conversion into both units, Use now, and the live epoch clock.
+- No JavaScript runtime exceptions; syntax and Git whitespace checks passed. Desktop screenshot visually reviewed.
+- Dates entered in the existing panels have whole-second precision. Epoch milliseconds retain their full input precision.
+
+## 0.5.0 — UTC Converter, the first Web App
+
+- Recorded: `2026-09-15T11:29:00-04:00` (America/New_York).
+- Status: local working-tree changes; not committed, pushed, or deployed. Published version remains 0.4.0.
+- Request: build a UTC converter following Ryan's mockup: Local/UTC clocks above two conversion columns.
+
+### User-facing behavior
+
+- Added live Local time and UTC time clocks with seconds, calendar dates, detected device zone, and local UTC offset.
+- Added UTC-to-local and local-to-UTC panels with labeled date/time inputs, conversion buttons, and Use now buttons.
+- Dates default to today in the corresponding input zone; times remain blank until entered or Use now is selected.
+- Results show 24-hour time, full date, and UTC offset. UTC-to-local also identifies the local time zone.
+- Rejected empty/invalid inputs and nonexistent local times during forward clock changes.
+- Repeated local times expose first/second occurrence choices, with distinct offsets and UTC results.
+  Use now selects the occurrence corresponding to the current instant when the clock repeats.
+- Input changes clear stale results. Errors and conversion results have accessible announcements;
+  the clocks update without live announcements every second.
+- Panels sit side by side on desktop and stack on phones. Saved themes, Settings links, and Web Apps back links work.
+- Replaced the Web Apps empty state with a compact UTC Converter card on the homepage and Workbench preview.
+
+### File-by-file changes
+
+| File | Action | Specific changes |
+| --- | --- | --- |
+| `web-apps/utc-converter.html` | Added | Page metadata, navigation, clocks, two conversion forms, repeated-time selector, result/error regions, and timezone guidance. |
+| `assets/utc-core.js` | Added | Strict input parsing, UTC/local conversion, gap rejection, repeated-time candidate discovery, date/time formatting, and offset labels; usable from browser and Node. |
+| `assets/utc-converter.js` | Added | Live clocks, current-date defaults, form submissions, Use now, result/error updates, stale-result clearing, and repeated-time selection. |
+| `assets/utc-converter.css` | Added | Compact clock rows, bordered columns, themed inputs/buttons/results, responsive stacking, and narrow-screen field layout. |
+| `tests/utc-converter.test.cjs` | Added | Nine Node regression tests with isolated time-zone environments. |
+| `index.html` | Updated | Web Apps now lists the UTC Converter with a working link. |
+| `concepts/workbench.html` | Updated | Mirrors the listing with a directory-correct converter link. |
+| `README.md` | Updated | Converter usage, file map, input/timezone behavior, test command, and local release status. |
+| `AGENTS.md` | Updated | Mockup/layout requirements, timezone semantics, daylight-saving rules, test command, and maintenance conventions. |
+| `CHANGELOG.md` | Updated | Added this detailed implementation and validation record. |
+
+### Validation
+
+- Nine Node tests passed: strict input validation/leap day, winter UTC-to-local previous-day rollover,
+  summer local-to-UTC next-day rollover, New York forward gap and backward repeat, Lord Howe's half-hour
+  repeat, Kathmandu's quarter-hour offset, UTC round-trip, and Apia's skipped date.
+- Headless Edge verified the converter fits 1440px, 768px, 390px, and 320px without horizontal overflow.
+- Browser checks passed for live clock progression, both conversion directions with date rollover,
+  gap rejection/stale-result clearing, both repeated-time choices, empty-input errors, and both Use now buttons.
+- Verified saved Paper theme on mobile, the narrow-screen Web Apps listing, and navigation into the converter.
+- No JavaScript runtime exceptions occurred during the final browser run.
+- Visually reviewed the populated desktop converter and mobile Paper-theme layout.
+- All new app assets return HTTP 200 locally; related local links resolve. JavaScript syntax and Git whitespace checks passed.
+
+### Limitations
+
+- Local zone and current clocks use device settings. Conversion relies on installed browser time-zone data.
+- Input range is 1900–9999, with minute precision. Native date/time controls follow device locale;
+  displayed results and clocks use 24-hour time.
+- No arbitrary time-zone selector, external API, saved conversion history, or new dependencies were added.
+- Validation used Node and responsive desktop Edge viewports, not physical mobile devices or a full screen-reader audit.
+
 ## 0.4.0 — About me, Reports, Web Apps, and Gaming
 
 - Recorded: `2026-09-15T11:05:40-04:00` (America/New_York).

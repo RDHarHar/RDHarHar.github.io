@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="About Ryan Harwick, statistical reports, web apps, and gaming.">
-  <title>Ryan Harwick — About me</title>
-  <script src="../assets/site.js"></script>
-  <link rel="stylesheet" href="../assets/site.css">
+  <title>Ryan Harwick — Home</title>
+  <script src="../assets/site.js?v=0.9.4"></script>
+  <script src="../assets/home.js?v=0.9.4" defer></script>
+  <link rel="stylesheet" href="../assets/site.css?v=0.9.4">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -15,7 +16,8 @@
       <a class="brand" href="../index.html" aria-label="Ryan Harwick, home"><span class="monogram" aria-hidden="true">rh<span>_</span></span><span>Ryan Harwick</span></a>
       <div class="navigation">
         <div class="tabs" role="tablist" aria-label="Site sections">
-          <button id="about-tab" type="button" role="tab" aria-selected="true" aria-controls="about-panel" tabindex="0">About me</button>
+          <button id="home-tab" type="button" role="tab" aria-selected="true" aria-controls="home-panel" tabindex="0">Home</button>
+          <button id="about-tab" type="button" role="tab" aria-selected="false" aria-controls="about-panel" tabindex="-1">About me</button>
           <button id="reports-tab" type="button" role="tab" aria-selected="false" aria-controls="reports-panel" tabindex="-1">Reports</button>
           <button id="web-apps-tab" type="button" role="tab" aria-selected="false" aria-controls="web-apps-panel" tabindex="-1">Web Apps</button>
           <button id="gaming-tab" type="button" role="tab" aria-selected="false" aria-controls="gaming-panel" tabindex="-1">Gaming</button>
@@ -25,7 +27,22 @@
       </div>
     </header>
     <main id="main">
-      <section id="about-panel" role="tabpanel" aria-labelledby="about-tab" tabindex="0">
+      <section id="home-panel" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <div class="home-heading"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> The latest from my corner of the web</p><h1>Building things. Breaking things.<br><span>Learning along the way.</span></h1></div>
+        <div class="home-updates">
+          <article class="featured-update" aria-labelledby="update-title">
+            <div class="update-meta"><span class="eyebrow" id="update-category">Latest update / Build notes</span><time id="update-date" datetime="2026-09-15">September 15, 2026</time></div>
+            <div id="update-content" aria-live="polite" aria-atomic="true"><h2 id="update-title">Behind the converter.</h2><p id="update-summary">A look at how the UTC &amp; Epoch Converter developed, from a rough sketch to the details that make time conversion interesting.</p><ul id="update-details"><li>How the original idea changed once there was a working page.</li><li>Lessons from clock changes, clear inputs, and shared conversion rules.</li><li>A short map of the code for anyone who wants to look further.</li></ul></div>
+            <div class="update-bottom"><span id="update-version">Update 0.9.0</span><a id="update-link" href="../web-apps/utc-converter-behind-the-scenes.html">Read the code and lessons ↗</a></div>
+          </article>
+          <aside class="recent-updates" aria-labelledby="recent-heading"><div class="recent-heading"><h2 id="recent-heading">Recent updates</h2><span class="eyebrow">Latest 5</span></div><ol id="recent-update-list"></ol></aside>
+        </div>
+        <div class="home-info-grid">
+          <section class="home-info" aria-labelledby="faq-heading"><p class="eyebrow">A few answers</p><h2 id="faq-heading">FAQ</h2><div class="home-placeholder"><span aria-hidden="true">?</span><p>Questions & answers coming soon.</p><p class="subtle">This space is ready for the things you'd like to know.</p></div></section>
+          <section class="home-info" aria-labelledby="quick-info-heading"><p class="eyebrow">At a glance</p><h2 id="quick-info-heading">Quick info</h2><div class="home-placeholder"><span aria-hidden="true">i</span><p>A few useful details, coming soon.</p><p class="subtle">Key information and handy links will live here.</p></div></section>
+        </div>
+      </section>
+      <section id="about-panel" role="tabpanel" aria-labelledby="about-tab" tabindex="0" hidden>
         <div class="hero">
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A personal workspace</p>
           <h1 class="tagline">Building things. Breaking things.<br> <span>Learning along the way.</span></h1>
@@ -50,7 +67,8 @@
       </section>
       <section id="web-apps-panel" role="tabpanel" aria-labelledby="web-apps-tab" tabindex="0" hidden>
         <div class="section-intro"><p class="eyebrow">03 / Web Apps</p><h1>Ideas you can<br><span>interact with.</span></h1><p class="intro">A space for useful tools and browser-based experiments.</p></div>
-        <div class="empty-state"><span class="empty-symbol" aria-hidden="true">&lt;/&gt;</span><h2>No web apps yet.</h2><p>New tools and apps will live here.</p><span class="empty-label">Room for the next idea</span></div>
+        <a class="project-row" href="../web-apps/utc-converter.html"><span class="stream-icon" aria-hidden="true">↔</span><div class="project-copy"><span class="eyebrow category">Time tools</span><h3>UTC &amp; Epoch Converter</h3><p>Convert Unix timestamps, UTC, and your local time.</p></div><span class="project-type">LOCAL ↔ UTC</span><span class="project-arrow" aria-hidden="true">↗</span></a>
+        <div class="next-note"><span aria-hidden="true">+</span><p>More tools and experiments to come.</p></div>
       </section>
       <section id="gaming-panel" role="tabpanel" aria-labelledby="gaming-tab" tabindex="0" hidden>
         <div class="section-intro"><p class="eyebrow">04 / Gaming</p><h1>A little room<br>to <span>play.</span></h1><p class="intro">Small games, side projects, and time on stream.</p></div>
@@ -62,7 +80,7 @@
         <form id="theme-form">
           <fieldset aria-describedby="theme-help"><legend>Color theme</legend><p class="field-hint" id="theme-help">Choose a palette. Your preference is saved in this browser.</p>
             <div class="theme-grid">
-              <label class="theme-choice" data-palette="graphite"><input type="radio" name="theme" value="graphite" checked><span class="theme-preview" aria-hidden="true"><span class="preview-nav"></span><span class="preview-line"></span><span class="preview-accent"></span><span class="preview-row"></span></span><span class="theme-caption"><span><strong>Graphite</strong><small>Charcoal & fresh lime</small></span><span class="theme-check" aria-hidden="true">✓</span></span></label>
+              <label class="theme-choice" data-palette="graphite"><input type="radio" name="theme" value="graphite" checked><span class="theme-preview" aria-hidden="true"><span class="preview-nav"></span><span class="preview-line"></span><span class="preview-accent"></span><span class="preview-row"></span></span><span class="theme-caption"><span><strong>Graphite</strong><small>Charcoal & warm orange</small></span><span class="theme-check" aria-hidden="true">✓</span></span></label>
               <label class="theme-choice" data-palette="ocean"><input type="radio" name="theme" value="ocean"><span class="theme-preview" aria-hidden="true"><span class="preview-nav"></span><span class="preview-line"></span><span class="preview-accent"></span><span class="preview-row"></span></span><span class="theme-caption"><span><strong>Ocean</strong><small>Deep navy & clear blue</small></span><span class="theme-check" aria-hidden="true">✓</span></span></label>
               <label class="theme-choice" data-palette="violet"><input type="radio" name="theme" value="violet"><span class="theme-preview" aria-hidden="true"><span class="preview-nav"></span><span class="preview-line"></span><span class="preview-accent"></span><span class="preview-row"></span></span><span class="theme-caption"><span><strong>Violet</strong><small>Soft ink & lavender</small></span><span class="theme-check" aria-hidden="true">✓</span></span></label>
               <label class="theme-choice" data-palette="paper"><input type="radio" name="theme" value="paper"><span class="theme-preview" aria-hidden="true"><span class="preview-nav"></span><span class="preview-line"></span><span class="preview-accent"></span><span class="preview-row"></span></span><span class="theme-caption"><span><strong>Paper</strong><small>Warm white & forest green</small></span><span class="theme-check" aria-hidden="true">✓</span></span></label>
@@ -71,9 +89,9 @@
           <div class="settings-bottom"><p id="theme-status" role="status" aria-live="polite">Graphite selected.</p><button class="reset" type="button" id="reset-theme">Reset to Graphite</button></div>
         </form>
       </section>
-      <noscript><p class="no-script">Enable JavaScript to switch sections and color themes. The About me links still work below.</p></noscript>
+      <noscript><p class="no-script">Enable JavaScript to browse updates, switch sections, and choose color themes.</p></noscript>
     </main>
-    <footer><span>Ryan Harwick <span class="footer-dot">/</span> A work in progress.</span><a href="index.html" target="_top">Design studies ↗</a></footer>
+    <footer><span>Ryan Harwick <span class="footer-dot">/</span> A work in progress.</span></footer>
   </div>
 </body>
 </html>

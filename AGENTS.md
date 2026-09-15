@@ -89,7 +89,83 @@ Keep detailed change records in `CHANGELOG.md`. Never store secrets or private p
 - Ryan requested publication of all 0.4.0 changes on 2026-09-15. Release commit `e76530f` deployed
   successfully; all 15 served source files matched the release and both retired URLs returned 404.
 
+## 2026-09-15 — UTC Converter (0.5.0)
+
+- The first Web App is `web-apps/utc-converter.html`, based on Ryan's supplied mockup:
+  stacked live Local/UTC clocks above adjacent UTC-to-local and local-to-UTC panels.
+- Preserve the two-panel desktop layout, stack on mobile, and inherit the existing saved theme.
+- “Local” means the visitor's device time zone, not Ryan's time zone or a fixed offset.
+- Always convert a date together with the time; offsets depend on the chosen date. Show the result date
+  so crossing midnight, month, or year is clear. Results use 24-hour time and an explicit offset.
+- Reject nonexistent local times and expose both occurrences of repeated times. Do not silently adjust
+  a daylight-saving gap or assume all clock changes are one hour.
+- Conversion helpers live in `assets/utc-core.js`; UI code lives in `assets/utc-converter.js`.
+- Run `node --test tests/utc-converter.test.cjs` when changing conversion logic.
+- The supported input years are 1900–9999. Time-zone correctness relies on the browser's timezone data.
+- Version 0.5.0 is local until publication is requested.
+
+## 2026-09-15 — Epoch support (0.6.0)
+
+- Ryan clarified that the numeric timestamp they wanted was Unix epoch time, and asked to add it alongside UTC.
+- Keep the existing converter URL. The page and Web Apps card are now named UTC & Epoch Converter.
+- Epoch input explicitly selects seconds or milliseconds; never infer units solely from digit count.
+- Accept integer timestamps, including zero and negatives, within UTC years 1900–9999.
+- Preserve millisecond precision in epoch-to-date results. Date inputs now accept seconds and output both epoch units.
+- The live epoch display refreshes once per second, including its millisecond snapshot.
+- Version 0.6.0 remains local; it includes all previously unpublished converter work.
+
+## 2026-09-15 — Converter layout and reverse form (0.7.0)
+
+- Ryan requested the exact heading “Epoch time” and moved epoch conversion below the two UTC/local panels.
+- The lower row pairs Epoch time (timestamp to date) with Date and time (date to epoch).
+- The dedicated reverse form selects Local or UTC, returns both epoch units, and reuses the existing
+  validation and daylight-saving helpers. Keep repeated-hour selection and Use now correct in local mode.
+- Inputs/zone changes clear stale reverse results. The four panels stack in document order on mobile.
+- Version 0.7.0 remains local until publication is requested.
+
+## Home layout — 2026-09-15 (0.8.0)
+
+- Home is now the default tab and fallback for unknown hashes, superseding About me as the landing section.
+- Follow Ryan's sketch: large latest-update panel left, five smaller recent entries right, then FAQ left
+  and Quick info right. Stack content on narrow screens; preserve the existing themes and compact design.
+- The recent-five list includes the newest/featured entry. Selecting an entry updates the large panel.
+- Update entries are real project changes, newest first in `assets/home.js`. Avoid claims that an update is live
+  until published. Keep static latest-update fallback content aligned in homepage and Workbench preview.
+- FAQ and Quick info must stay placeholders until Ryan provides their content.
+- Home links are present in converter and résumé headers; existing section URLs remain valid.
+- Version 0.8.0 remains local, including all unpublished converter work.
+
 ## Publishing workflow — confirmed 2026-09-15
+
+### Default orange accent — 2026-09-15 (0.9.1)
+
+- Ryan prefers orange over neon green as the main site color. Graphite now uses accent `#ffab66`
+  and tint `#39291f`, superseding the earlier lime default.
+- Keep the `graphite` theme key so saved preferences and reset behavior automatically use the new palette.
+- Ocean, Violet, and Paper remain independent alternatives. Historical concept palettes remain as designed.
+- In 0.9.2, Ryan still saw green in the local preview. The server and a fresh browser both showed orange;
+  shared stylesheet links now use `?v=0.9.2` to bypass an older cached copy. Bump the stylesheet version
+  when a visual change needs to invalidate cached CSS. Do not overwrite a visitor's chosen alternate theme.
+
+### First-person build notes — 2026-09-15 (0.9.0)
+
+- Ryan requested “Behind the scenes - Code and lessons” at the top of the converter, linking to
+  a broad walkthrough in his voice. He chose casual/direct with a little humor, focused on decisions
+  and lessons rather than discussing development tools.
+- Article: `web-apps/utc-converter-behind-the-scenes.html`. Ground first-person content in actual requests,
+  changes, and verified behavior. Ryan subsequently requested a direct first-person developer voice:
+  describe building, coding, and testing rather than asking for changes. Keep the implementation accurate
+  and avoid invented personal anecdotes or debugging stories.
+- Keep it readable without line-by-line code explanations; optional source links support deeper exploration.
+- Keep the test count and implementation descriptions current as the converter changes.
+- Home now features the build notes. Version 0.9.0 remains local until publication is requested.
+
+### Converter navigation — 2026-09-15 (0.7.1)
+
+- Ryan expects the converter header to expose all primary site sections, not only Web Apps and Settings.
+- Keep About me, Reports, Web Apps, Gaming, Settings, and GitHub visible in its header.
+- Use real links back to homepage section hashes; highlight Web Apps as the containing section.
+
 
 - Ryan authorized publication of 0.3.0. Release commit `d696b05` was pushed and its live files verified.
 - Git Credential Manager has been authorized as `RDHarHar`; use stored credentials without displaying them.
@@ -124,6 +200,9 @@ so these issues no longer apply to the current site. Preserve this record only f
 - The imported README was not UTF-8; setup rewrote it as UTF-8 for normal Markdown tooling.
 
 ## Version and record convention
+
+- Ryan requested removal of “Design studies” footer links on 2026-09-15. Keep the concept files available
+  for development, but do not reintroduce that footer link on the current site or mirrored Workbench page.
 
 - `CHANGELOG.md` is the source of truth for development versions.
 - Start at `0.1.0` for setup; do not retroactively assign versions to old commits.
