@@ -86,7 +86,8 @@ Keep detailed change records in `CHANGELOG.md`. Never store secrets or private p
 - The calculator was removed completely, including its unused script and links in alternative design concepts.
 - Shared theme code must work on both tabbed pages and résumé pages without Settings controls.
 - Keep responsive tabs keyboard-accessible, and use `#about`, `#reports`, `#web-apps`, `#gaming`, and `#settings`.
-- Ryan requested publication of all 0.4.0 changes on 2026-09-15; see `CHANGELOG.md` for verification evidence.
+- Ryan requested publication of all 0.4.0 changes on 2026-09-15. Release commit `e76530f` deployed
+  successfully; all 15 served source files matched the release and both retired URLs returned 404.
 
 ## Publishing workflow — confirmed 2026-09-15
 

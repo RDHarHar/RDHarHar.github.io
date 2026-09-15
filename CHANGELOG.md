@@ -7,9 +7,22 @@ Keep newest versions first and record exact files, changes, validation, and outs
 ## 0.4.0 — About me, Reports, Web Apps, and Gaming
 
 - Recorded: `2026-09-15T11:05:40-04:00` (America/New_York).
-- Status: publication requested on 2026-09-15; deployment verification pending.
+- Status: published on 2026-09-15; release commit `e76530f7bb5f679b33f0cd395c817b91b6ac1902`.
 - Request: replace the tagline, remove the Melvor calculator, scaffold the four content sections,
   add résumé and contact placeholders, and link Arctic Wes on Twitch.
+
+### Publication — `2026-09-15T11:17:42-04:00`
+
+- Ryan requested “publish everything.” Fetched `origin/main`; no remote changes conflicted with the release.
+- Rechecked JavaScript syntax, staged-file whitespace, and the file inventory; committed all pending site
+  changes and documentation, including the three new résumé pages and two calculator-file deletions.
+- Pushed commit `e76530f` to `main` without force-pushing; ignored local review artifacts remain excluded.
+- [GitHub Pages deployment 34987374772](https://github.com/RDHarHar/RDHarHar.github.io/actions/runs/34987374772)
+  completed successfully for this release.
+- Verified all 15 tracked HTML/CSS/JavaScript files on the live site returned HTTP 200 and exactly matched
+  local release content after normalizing line endings. This includes every résumé page and design concept.
+- Verified retired `/melvorCalc.html` and `/index.js` both return HTTP 404.
+- Live site: https://rdharhar.github.io/. Publication evidence is recorded in a follow-up documentation commit.
 
 ### Content and navigation
 

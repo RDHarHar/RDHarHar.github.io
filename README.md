@@ -68,8 +68,8 @@ The Melvor calculator and its unused script were removed in 0.4.0; its old URL i
 5. Record lasting decisions and useful lessons in `AGENTS.md`.
 
 Development versions in `CHANGELOG.md` do not imply a Git tag or live deployment.
-Version 0.3.0 was published on 2026-09-15.
-Version 0.4.0 adds the four content sections and résumé placeholders; see `CHANGELOG.md` for publication status.
+Version 0.4.0 was published and verified on 2026-09-15, including the four content sections and résumé placeholders.
+See `CHANGELOG.md` for release commits and deployment evidence.
 
 ## Publishing
 
