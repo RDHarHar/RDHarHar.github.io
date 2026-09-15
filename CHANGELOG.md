@@ -4,6 +4,42 @@ Development versions describe completed local work. A version heading alone does
 commit, or deployment exists. Entries use America/New_York time with an explicit UTC offset.
 Keep newest versions first and record exact files, changes, validation, and outstanding limitations.
 
+## 0.10.1 — Snake behind-the-scenes article
+
+- Recorded: `2026-09-15T12:43:12-04:00` (America/New_York). Status: local, not published.
+- `gaming/snake.html`: added “Behind the scenes - Code and lessons” above the game heading,
+  beside Back to Gaming; updated the Snake stylesheet URL to `?v=0.10.1`.
+- `gaming/snake-behind-the-scenes.html`: added a first-person article in Ryan's casual, direct
+  developer voice, based on recorded development notes. Covers separation of rules and display,
+  queued input, departing-tail collisions, full-board food placement, pause behavior, local scores,
+  six rule tests, and the actual arrow-encoding issue. Includes full navigation, section links,
+  source links, and return links to Snake; reuses the existing build-notes styles.
+- `assets/snake.css`: added a wrapping top-link row and accent styling for article return links.
+- Updated `README.md`, `AGENTS.md`, and the development notes with the article location.
+- Validation: game/article local assets and links resolve; browser checks passed at 1440, 768,
+  390, and 320px, including top-link navigation, article anchors, return navigation, saved theme,
+  and no runtime errors. Game logic is unchanged.
+
+## 0.10.0 — Snake and a local leaderboard
+
+- Recorded: `2026-09-15T12:37:34-04:00` (America/New_York). Status: local, not published.
+- `gaming/snake.html`: added a themed standalone game with full site navigation, score/best displays,
+  canvas board, Start/Pause/Resume, keyboard and touch controls, and a named top-10 leaderboard.
+- `assets/snake-core.js`: implemented a 20-by-20 board, two-turn queue, reversal protection, food/growth,
+  wall/body collisions, legal movement into the departing tail, and explicit full-board victory.
+- `assets/snake.js`: added progressively faster scheduled movement, automatic pause on hidden tab/window
+  blur, swipe/button/arrow/WASD controls, live theme redraw, one save per run, validated localStorage
+  records, safe text rendering of names, and in-memory fallback when storage is unavailable.
+- `assets/snake.css`: responsive board/sidebar layout, mobile direction controls, all four shared themes.
+- `index.html`, `concepts/workbench.html`: replaced the Gaming empty state with a Snake link; retained Twitch.
+- `tests/snake.test.cjs`: all six rule tests passed. Headless Edge checks passed at 1440/768/390/320px,
+  including pause/resume, game over, saving, reload persistence, malformed storage, safe name rendering,
+  navigation, and no runtime exceptions. Screenshot review caught shell-corrupted arrows, fixed with entities.
+- `docs/snake-development-notes.md`: recorded actual implementation decisions, edge cases, validation,
+  and possible article topics. `README.md` and `AGENTS.md` document usage and maintenance expectations.
+- Leaderboard is local per Ryan's choice; it is not shared or tamper-proof. Concurrent browser-tab writes
+  can race. Starting another run without saving discards the previous unsaved score.
+
 ## 0.9.4 — Remove Design studies footer links
 
 - Recorded: `2026-09-15T12:27:47-04:00` (America/New_York).

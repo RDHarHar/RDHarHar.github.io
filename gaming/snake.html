@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-theme="graphite">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A small classic Snake game with a leaderboard saved in your browser.">
+<title>Snake &mdash; Ryan Harwick</title>
+<script src="../assets/site.js?v=0.9.4"></script>
+<link rel="stylesheet" href="../assets/site.css?v=0.9.4">
+<link rel="stylesheet" href="../assets/snake.css?v=0.10.1">
+<script src="../assets/snake-core.js?v=0.10.0" defer></script>
+<script src="../assets/snake.js?v=0.10.0" defer></script>
+</head><body><a class="skip" href="#main">Skip to content</a><div class="shell">
+    <header class="header">
+      <a class="brand" href="../index.html#home"><span class="monogram" aria-hidden="true">rh<span>_</span></span><span>Ryan Harwick</span></a>
+      <div class="navigation">
+        <nav class="section-links" aria-label="Site navigation">
+          <a href="../index.html#home">Home</a>
+          <a href="../index.html#about">About me</a>
+          <a href="../index.html#reports">Reports</a>
+          <a href="../index.html#web-apps">Web Apps</a>
+          <a href="../index.html#gaming" aria-current="location">Gaming</a>
+          <a href="../index.html#settings">Settings</a>
+        </nav>
+        <a class="github" href="https://github.com/RDHarHar" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </header>
+
+<main id="main">
+<div class="snake-heading"><div class="snake-links"><a href="../index.html#gaming">&larr; Back to Gaming</a><a class="behind-link" href="snake-behind-the-scenes.html">Behind the scenes - Code and lessons &#8599;</a></div><p class="eyebrow">01 / Gaming</p><h1>Just one more <span>Snake.</span></h1><p>Eat. Grow. Try not to become your own worst enemy.</p></div>
+<div class="snake-layout">
+<section class="play-panel" aria-label="Snake game">
+<div class="scorebar"><span>Score <strong id="score">0</strong></span><span>Best <strong id="best">0</strong></span></div>
+<canvas id="board" width="600" height="600" tabindex="0" role="img" aria-label="Snake board. Use arrow keys or WASD to steer." aria-describedby="instructions">Snake requires a browser that supports canvas.</canvas>
+<p id="game-status" role="status">Ready when you are.</p>
+<div class="game-actions"><button id="start" type="button">Start game</button><button id="pause" type="button" disabled>Pause</button></div>
+<div class="dpad" role="group" aria-label="Direction controls"><button data-direction="up" aria-label="Up">&uarr;</button><button data-direction="left" aria-label="Left">&larr;</button><button data-direction="down" aria-label="Down">&darr;</button><button data-direction="right" aria-label="Right">&rarr;</button></div>
+<p id="instructions">Arrow keys or WASD to steer. Space to pause. On touch screens, swipe the board or use the buttons. Food earns 10 points; the pace increases as you grow. Walls and your body end the run.</p>
+<noscript>Enable JavaScript to play Snake and save scores.</noscript>
+</section>
+<aside class="leaderboard" aria-labelledby="leaderboard-heading"><p class="eyebrow">Your top 10</p><h2 id="leaderboard-heading">Leaderboard</h2><p>Saved in this browser, on this device.</p>
+<form id="score-form" hidden><label for="player">Name for this run</label><input id="player" maxlength="20" placeholder="Player" autocomplete="nickname"><button type="submit">Save score</button></form>
+<p id="save-status" role="status"></p><ol id="scores"></ol><p id="empty-scores">No scores yet. Set the first one.</p>
+</aside></div>
+</main><footer><span>Ryan Harwick <span class="footer-dot">/</span> Work in progress</span></footer></div></body></html>

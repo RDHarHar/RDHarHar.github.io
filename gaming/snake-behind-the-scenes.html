@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="graphite">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How I built Snake, from quick turns and tail collisions to a local leaderboard, and what I learned along the way.">
+  <title>Behind Snake - Code and lessons | Ryan Harwick</title>
+  <script src="../assets/site.js?v=0.9.4"></script>
+  <link rel="stylesheet" href="../assets/site.css?v=0.9.4">
+  <link rel="stylesheet" href="../assets/snake.css?v=0.10.1">
+  <link rel="stylesheet" href="../assets/build-notes.css?v=0.9.4">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <header class="header">
+      <a class="brand" href="../index.html#home"><span class="monogram" aria-hidden="true">rh<span>_</span></span><span>Ryan Harwick</span></a>
+      <div class="navigation">
+        <nav class="section-links" aria-label="Site navigation">
+          <a href="../index.html#home">Home</a><a href="../index.html#about">About me</a><a href="../index.html#reports">Reports</a><a href="../index.html#web-apps">Web Apps</a><a href="../index.html#gaming" aria-current="location">Gaming</a><a href="../index.html#settings">Settings</a>
+        </nav>
+        <a class="github" href="https://github.com/RDHarHar" target="_blank" rel="noopener">GitHub &#8599;</a>
+      </div>
+    </header>
+    <main id="main" class="build-notes">
+      <a class="back-link" href="snake.html">&larr; Back to Snake</a>
+      <article>
+        <header class="notes-header">
+          <p class="eyebrow">Behind the scenes - Code and lessons</p>
+          <h1>A few squares.<br><span>A surprising number of rules.</span></h1>
+          <p class="deck">I built Snake as the first little game for the site. Move around, eat food, get longer. Easy enough to describe. Making those three things behave properly gave me a few interesting problems to work through.</p>
+          <p class="notes-meta">By Ryan Harwick &middot; <time datetime="2026-09-15">September 15, 2026</time></p>
+        </header>
+        <div class="notes-layout">
+          <div class="notes-copy">
+            <section id="starting-point">
+              <h2>I started with the board.</h2>
+              <p>I kept the first version small: a 20-by-20 grid, a snake, and one piece of food. Each snack adds 10 points, and the pace gradually increases. The walls stay solid. Running into myself still ends badly.</p>
+              <p>I used canvas to draw the board and regular HTML for the buttons and leaderboard. I also kept the game rules separate from the code that draws things and handles clicks. That let me test a move without needing the whole page running.</p>
+              <p>The game uses the site's existing colors and navigation. I wanted it to feel like part of the site, including when I switch themes or open it on a phone.</p>
+              <p class="lesson">Giving the rules their own place made both testing and changing the interface easier.</p>
+            </section>
+            <section id="turns">
+              <h2>My fingers can outrun the snake.</h2>
+              <p>The snake moves in steps, but key presses can arrive between those steps. If I'm heading right and quickly press up, then left, those should become two separate turns. Applying both before the next move would send me straight back into myself. Efficient, but not particularly fun.</p>
+              <p>I added a small queue that remembers up to two turns and uses one per move. Each new turn is checked against the direction before it, so I can't reverse directly. Keyboard controls, direction buttons, and swipes all feed into the same rules.</p>
+              <p class="lesson">When input and movement happen at different times, the order matters. A tiny queue can make the controls much more predictable.</p>
+            </section>
+            <section id="tail">
+              <h2>The tail is already on its way out.</h2>
+              <p>Checking whether the head hits the body sounds straightforward. There's one catch: on a normal move, the tail leaves its current square. Moving the head into that square is legal because the tail won't be there anymore.</p>
+              <p>I made the collision check leave out the departing tail. When the snake eats, it grows instead, so the tail stays and still counts as occupied. The difference is small in the code, but it changes whether a perfectly valid move ends the game.</p>
+              <p>Food placement had its own boundary case. I collect the empty squares and pick one, rather than repeatedly guessing a square until I get lucky. If there are no empty squares left, the board is full and the player wins. The game shouldn't spend forever trying to find somewhere to put lunch.</p>
+              <p class="lesson">I needed to check what the board would look like after the move, not just what it looked like before it.</p>
+            </section>
+            <section id="pause-and-scores">
+              <h2>A pause button and a place to keep scores.</h2>
+              <p>I schedule one move at a time. Pausing cancels the next move; resuming starts a fresh wait. I also pause when the tab is hidden or the window loses focus. Coming back to the game should give me a chance to play it.</p>
+              <p>For the leaderboard, I kept the top 10 runs in the browser's local storage. I can enter a name after a run and come back to those scores later in the same browser. They don't follow me to another device, and clearing browser data can remove them.</p>
+              <p>I check stored entries before displaying them and render player names as plain text. If storage isn't available, the game still works and keeps scores for the current visit. A scoreboard problem shouldn't stop the snake from moving.</p>
+              <p class="lesson">Deciding where the data lives also decides what I can promise about it. This leaderboard is a personal score history, not a shared competition.</p>
+            </section>
+            <section id="testing">
+              <h2>I tested the awkward moves.</h2>
+              <p>I added six automated tests for quick turns, growth, wall and body collisions, moving into the departing tail, and filling the board. For the last one, a tiny two-by-two test board proves the rule without playing an entire game first.</p>
+              <p>I also checked the browser behavior: pausing, saving a score, reloading it, handling broken stored data, and fitting the page on desktop and small screens. Names that look like HTML should still appear as names.</p>
+              <p>Screenshot review caught a less exciting problem: some arrows had turned into question marks while the page was being written through a Windows shell. I replaced them with HTML character references so the intended symbols survive that step. Apparently, even the up button needs directions sometimes.</p>
+            </section>
+            <section id="code">
+              <h2>How I organized the code.</h2>
+              <p>The pieces are small enough to follow individually:</p>
+              <div class="code-map">
+                <a href="../assets/snake-core.js?v=0.10.0" target="_blank" rel="noopener">The game rules &#8599;<small>Movement, queued turns, food, collisions, and winning.</small></a>
+                <a href="../assets/snake.js?v=0.10.0" target="_blank" rel="noopener">The game in the browser &#8599;<small>Drawing, controls, pausing, and saved scores.</small></a>
+                <a href="../assets/snake.css?v=0.10.1" target="_blank" rel="noopener">The layout &#8599;<small>The board, leaderboard, and controls on smaller screens.</small></a>
+                <a href="../tests/snake.test.cjs" target="_blank" rel="noopener">The rule tests &#8599;<small>Small examples for the moves most likely to cause trouble.</small></a>
+              </div>
+            </section>
+            <section class="notes-closing">
+              <h2>A small game was plenty to start with.</h2>
+              <p>I got a playable game out of this, along with a better way to think about input timing, changes to game state, and testing boundaries. Now I just need to stop steering into the wall.</p>
+              <p>Building things. Breaking things. Learning along the way.</p>
+              <a href="snake.html">Back to Snake &#8599;</a>
+            </section>
+          </div>
+          <aside class="notes-toc"><h2>In these notes</h2><nav aria-label="Article sections"><a href="#starting-point">Starting with the board</a><a href="#turns">Keeping turns in order</a><a href="#tail">The departing tail</a><a href="#pause-and-scores">Pausing and saving scores</a><a href="#testing">Testing the awkward moves</a><a href="#code">Following the code</a></nav></aside>
+        </div>
+      </article>
+    </main>
+    <footer><span>Ryan Harwick <span class="footer-dot">/</span> A work in progress.</span><a href="snake.html">Back to Snake &#8599;</a></footer>
+  </div>
+</body>
+</html>

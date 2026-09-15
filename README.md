@@ -53,6 +53,19 @@ The top row contains the UTC/local converters. Below it, **Epoch time** converts
 and **Date and time** converts a date/time into epoch seconds and milliseconds. Select Local or UTC
 for the latter; it includes Use now and repeated-hour selection for daylight-saving changes.
 
+## Snake
+
+Open http://127.0.0.1:8000/gaming/snake.html or choose **Gaming → Snake**.
+Steer with arrows/WASD, swipe, or direction buttons; use Pause or Space while the board is focused.
+The game pauses when you leave the window or tab. Each snack earns 10 points and the pace gradually increases.
+Save a finished run with a name to the top-10 leaderboard in this browser. Scores are not shared across devices.
+If browser storage is unavailable, scores last only for the current visit.
+
+Version 0.10.1 is local and not published. The game's top **Behind the scenes - Code and lessons**
+link opens `gaming/snake-behind-the-scenes.html`, a first-person walkthrough of the implementation
+and lessons. Working notes remain in `docs/snake-development-notes.md`.
+Run `node --test tests/snake.test.cjs` to check the game rules.
+
 ## Style concepts
 
 The current homepage uses the selected **Workbench** direction with a compact layout.
