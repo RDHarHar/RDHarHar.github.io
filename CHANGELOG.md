@@ -6,7 +6,10 @@ Keep newest versions first and record exact files, changes, validation, and outs
 
 ## 0.10.2 — Remove the Gaming stream link
 
-- Recorded: `2026-09-15T12:52:30-04:00` (America/New_York). Publication requested; verification pending.
+- Recorded: `2026-09-15T12:52:30-04:00` (America/New_York). Published in commit `daa4507`.
+- [Pages run 34997793455](https://github.com/RDHarHar/RDHarHar.github.io/actions/runs/34997793455)
+  succeeded. At `2026-09-15T12:54:24-04:00`, both live pages matched the release exactly,
+  with no Twitch URL/stream card and with Snake still linked.
 - `index.html`, `concepts/workbench.html`: removed the entire Arctic Wes/Twitch stream card and
   changed the Gaming introduction to “Small games and side projects.” Snake remains linked.
 - `README.md` describes the current Gaming content; `AGENTS.md` records the removal preference.
