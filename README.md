@@ -99,9 +99,10 @@ The Melvor calculator and its unused script were removed in 0.4.0; its old URL i
 Development versions in `CHANGELOG.md` do not imply a Git tag or live deployment.
 Version 0.4.0 was published and verified on 2026-09-15, including the four content sections and résumé placeholders.
 See `CHANGELOG.md` for release commits and deployment evidence.
-The converter header links directly to About me, Reports, Web Apps, Gaming, and Settings.
-Version 0.9.4 (Home, converter, build notes, and orange default accent) is currently local and not published.
-Shared stylesheet links include a version query to refresh cached colors after palette changes.
+The converter header links directly to Home, About me, Reports, Web Apps, Gaming, and Settings.
+Version 0.9.4 (Home, converter, build notes, orange default accent, and footer cleanup) was published
+and verified on 2026-09-15 in release commit `a9a7f0b`.
+Shared app stylesheet and script links use `?v=0.9.4` to refresh cached assets for this release.
 
 ## Behind the scenes
 

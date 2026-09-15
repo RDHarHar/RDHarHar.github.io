@@ -7,7 +7,13 @@ Keep newest versions first and record exact files, changes, validation, and outs
 ## 0.9.4 — Remove Design studies footer links
 
 - Recorded: `2026-09-15T12:27:47-04:00` (America/New_York).
-- Status: publication requested on 2026-09-15; deployment verification pending.
+- Status: published as commit `a9a7f0b67c0a8d6dc0b8afcba68fc280ada05187` on 2026-09-15.
+- Deployment verified at `2026-09-15T12:31:47-04:00`: [Pages run 34995359103](https://github.com/RDHarHar/RDHarHar.github.io/actions/runs/34995359103)
+  completed successfully. All 22 tracked HTML/CSS/JS files returned HTTP 200 and matched local content;
+  the linked converter test source also matched. Retired `melvorCalc.html` and `index.js` returned HTTP 404.
+- This release includes all development work from 0.5.0 through 0.9.4: Home and recent updates,
+  UTC/epoch conversion, shared navigation, first-person build notes, orange theme, and footer cleanup.
+  Earlier local-status entries describe their status when recorded; these changes are now published.
 - Release preparation: fetched the unchanged remote branch, passed all 13 converter tests and JavaScript
   syntax checks, verified local page links/assets, and versioned app script/stylesheet URLs with `?v=0.9.4`
   so returning visitors load the new Home navigation, converter code, and orange theme together.

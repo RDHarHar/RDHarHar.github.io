@@ -137,6 +137,12 @@ Keep detailed change records in `CHANGELOG.md`. Never store secrets or private p
 
 ## Publishing workflow — confirmed 2026-09-15
 
+- Version 0.9.4 was published in commit `a9a7f0b` on 2026-09-15. Pages run `34995359103`
+  succeeded; all 22 tracked HTML/CSS/JS files and the linked converter test source matched live content.
+  This supersedes historical local-status notes for 0.5.0–0.9.4. Retired calculator URLs still return 404.
+- Shared app CSS and JavaScript URLs now use `?v=0.9.4`; coordinate cache versions across pages
+  when publishing changes that need fresh assets.
+
 ### Default orange accent — 2026-09-15 (0.9.1)
 
 - Ryan prefers orange over neon green as the main site color. Graphite now uses accent `#ffab66`
