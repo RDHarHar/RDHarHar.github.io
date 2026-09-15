@@ -6,6 +6,13 @@ Keep newest versions first and record exact files, changes, validation, and outs
 
 ## 0.10.1 — Snake behind-the-scenes article
 
+- Publication: release commit `9744f0961be80d7fc850696d739756994d2d0930` includes 0.10.0 and 0.10.1.
+  [Pages run 34997475141](https://github.com/RDHarHar/RDHarHar.github.io/actions/runs/34997475141)
+  completed successfully. Verified at `2026-09-15T12:51:13-04:00`: all 27 tracked HTML/CSS/JS files
+  returned HTTP 200 and matched the release; both retired calculator URLs still returned 404.
+  Six Snake rule tests, JavaScript syntax checks, and Git whitespace checks passed before publication.
+  This supersedes the local-status notes below, which describe the status when development was recorded.
+
 - Recorded: `2026-09-15T12:43:12-04:00` (America/New_York). Status: local, not published.
 - `gaming/snake.html`: added “Behind the scenes - Code and lessons” above the game heading,
   beside Back to Gaming; updated the Snake stylesheet URL to `?v=0.10.1`.

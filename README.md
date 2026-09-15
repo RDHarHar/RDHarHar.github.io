@@ -61,7 +61,8 @@ The game pauses when you leave the window or tab. Each snack earns 10 points and
 Save a finished run with a name to the top-10 leaderboard in this browser. Scores are not shared across devices.
 If browser storage is unavailable, scores last only for the current visit.
 
-Version 0.10.1 is local and not published. The game's top **Behind the scenes - Code and lessons**
+Version 0.10.1 was published and verified on 2026-09-15 in release commit `9744f09`.
+The game's top **Behind the scenes - Code and lessons**
 link opens `gaming/snake-behind-the-scenes.html`, a first-person walkthrough of the implementation
 and lessons. Working notes remain in `docs/snake-development-notes.md`.
 Run `node --test tests/snake.test.cjs` to check the game rules.

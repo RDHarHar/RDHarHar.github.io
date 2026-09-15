@@ -215,7 +215,9 @@ so these issues no longer apply to the current site. Preserve this record only f
 - Keep coding-journey observations in `docs/snake-development-notes.md` for the future behind-the-scenes article.
 - The article now exists at `gaming/snake-behind-the-scenes.html` (0.10.1), linked above the game heading.
   Keep its first-person explanations and source links accurate as the game evolves; retain working notes.
-- This version is local, not yet published. Gaming and mirrored Workbench link to the game.
+- Version 0.10.1 (including Snake 0.10.0) was published in commit `9744f09` on 2026-09-15.
+  Pages run `34997475141` succeeded; all 27 tracked HTML/CSS/JS files matched the live site.
+  Gaming and mirrored Workbench link to the game.
 
 - Ryan requested removal of “Design studies” footer links on 2026-09-15. Keep the concept files available
   for development, but do not reintroduce that footer link on the current site or mirrored Workbench page.

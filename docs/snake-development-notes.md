@@ -8,7 +8,7 @@ scores per browser. This is working material for a future article, not a publish
 ## Article added — 2026-09-15 (0.10.1)
 
 These notes now inform `gaming/snake-behind-the-scenes.html`, linked at the top of Snake.
-The article and game are still local, not deployed. Keep recording new observations here
+The article and game were published on 2026-09-15 in release commit `9744f09`. Keep recording new observations here
 and update the reader-facing article as relevant lessons develop.
 
 ### Starting small
