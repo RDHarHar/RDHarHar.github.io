@@ -1,0 +1,17 @@
+# Local operating-system files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Private local environment files
+.env
+.env.*
+!.env.example
+
+# Logs and Python caches
+*.log
+__pycache__/
+*.py[cod]
+
+# Local browser review artifacts
+.preview/
