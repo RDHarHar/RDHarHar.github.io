@@ -6,6 +6,12 @@ Keep newest versions first and record exact files, changes, validation, and outs
 
 ## 0.11.2 — Normalize Oscar comparisons across nominee counts
 
+- Published and verified: `2026-09-15T14:05:42-04:00`. Ryan authorized publication. Release commit `60ad34c`
+  deployed successfully in GitHub Pages run `35005208167`. All 31 tracked HTML/CSS/JS files,
+  seven report data/documentation files, and linked calculation source matched live content
+  (39 files checked). Retired calculator URLs still returned 404. This publishes the report
+  work recorded in 0.11.0 through 0.11.2.
+
 - Recorded: `2026-09-15T13:45:00-04:00` (America/New_York). Status: local, not published.
 - Ryan identified the larger-field advantage in combined yearly totals. All yearly quality rankings
   now use equal-weight averages per nominee for IMDb, Tomatometer, and the combined index.

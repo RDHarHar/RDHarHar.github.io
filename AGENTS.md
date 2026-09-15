@@ -230,8 +230,9 @@ so these issues no longer apply to the current site. Preserve this record only f
   Verify replication invariance of means and SD. Normalization does not undo changing field composition.
   Preserve ties and rank before rounding. Regenerate data with `scripts/analyze_oscars.py` and run
   `python -m unittest discover -s tests -p test_oscar_analysis.py` when changing calculations.
-- Report, Reports card, and Home feature are local until publication is requested. Keep mirrored
-  Workbench links and static Home fallback aligned with `assets/home.js`.
+- Report, Reports card, and Home feature were published in release `60ad34c` on 2026-09-15
+  (0.11.2). Pages run `35005208167` succeeded; live site and report downloads matched the release.
+  Keep mirrored Workbench links and static Home fallback aligned with `assets/home.js`.
 
 - On 2026-09-15, Ryan requested removing the Twitch stream link from Gaming and publishing it (0.10.2).
   This supersedes the earlier instruction to show Arctic Wes. Keep the stream card off the current

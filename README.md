@@ -42,7 +42,10 @@ The combined index equally weights IMDb × 10 and the Tomatometer. Competition m
 ratings across the whole field, not actual Academy vote margins. Scope, limitations, and sources
 are explained in the article. CSV downloads and provenance are under `reports/data/`.
 
-Version 0.11.2 is local and not published. Rebuild the report from its saved data with:
+Version 0.11.2 was published and verified on 2026-09-15 in release commit `60ad34c`.
+Live report: https://rdharhar.github.io/reports/oscar-best-picture.html
+
+Rebuild the report from its saved data with:
 
 ```powershell
 python scripts/analyze_oscars.py
