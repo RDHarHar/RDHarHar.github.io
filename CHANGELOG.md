@@ -7,7 +7,7 @@ Keep newest versions first and record exact files, changes, validation, and outs
 ## 0.3.0 — Compact Workbench homepage and theme Settings
 
 - Recorded: `2026-09-15T10:45:31-04:00` (America/New_York).
-- Status: local working-tree changes; not committed, tagged, pushed, or deployed.
+- Status: published to GitHub Pages on 2026-09-15; release commit `d696b05f63709c3401a3fac74b21c87461b55e16`.
 - Request: refine preferred concept 02 to feel less bulky and offer multiple colors under a Settings tab.
 
 ### Publication preparation — 2026-09-15
@@ -17,8 +17,21 @@ Keep newest versions first and record exact files, changes, validation, and outs
 - Public GitHub repository metadata confirms Pages is enabled; the live site still serves the original homepage.
 - Prepared one publication commit containing setup documentation, concept studies, and the 0.3.0 homepage.
 - Rechecked JavaScript syntax and Git whitespace before committing. Prior browser validation remains applicable.
-- Publishing requires a GitHub sign-in on this machine; no usable noninteractive credential was available.
-  Push and deployment verification remain pending until authentication succeeds.
+- GitHub initially required sign-in. Ryan completed Git Credential Manager's device authorization,
+  and the authenticated account was verified as `RDHarHar`.
+
+### Publication completed — `2026-09-15T10:55:00-04:00`
+
+- Confirmed authenticated Pages settings: deploy from branch `main`, repository root `/`, legacy branch build.
+- Set repository-local commit identity to Ryan Harwick with `RDHarHar@users.noreply.github.com`.
+- Pushed release commit `d696b05` to `origin/main`, advancing it from `3a5be56` without force-pushing.
+- GitHub triggered [Pages build and deployment](https://github.com/RDHarHar/RDHarHar.github.io/actions/runs/34984752973).
+- Verified live HTTP 200 responses and exact UTF-8 content matches (normalizing line endings) for
+  `index.html`, `assets/site.css`, `assets/site.js`, `concepts/workbench.html`, and `melvorCalc.html`.
+- Live website: https://rdharhar.github.io/; Settings: https://rdharhar.github.io/#settings.
+- This publication includes the earlier 0.1.0 setup and 0.2.0 concept work as well as 0.3.0.
+  Their original local-status records below describe their status when first completed.
+- Publication metadata is recorded in a follow-up documentation commit; no website behavior changes in that commit.
 
 ### Layout and behavior
 

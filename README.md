@@ -58,5 +58,16 @@ The calculator remains at its original URL; its older appearance and behavior ar
 5. Record lasting decisions and useful lessons in `AGENTS.md`.
 
 Development versions in `CHANGELOG.md` do not imply a Git tag or live deployment.
-Publishing requires confirming GitHub Pages configuration and access.
-There is currently no automated test suite or deployment workflow in this checkout.
+Version 0.3.0 was published on 2026-09-15.
+
+## Publishing
+
+GitHub Pages is configured to publish the repository root from `main`.
+Once a change is reviewed and ready to publish, commit the intended files and push to `origin/main`.
+GitHub starts its Pages build automatically. Check the repository's Actions page and verify
+https://rdharhar.github.io/ after deployment. A successful push alone does not confirm a live update.
+
+Git Credential Manager is authorized on the current development machine; it may request sign-in again
+if authorization expires. Credentials are not stored in this repository.
+There is no maintained automated test suite or custom deployment workflow in this checkout;
+GitHub provides the branch-based Pages deployment workflow.

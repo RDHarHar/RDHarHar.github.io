@@ -15,8 +15,8 @@ Keep detailed change records in `CHANGELOG.md`. Never store secrets or private p
 - Stack: static HTML, inline CSS, browser JavaScript; no dependencies or build process.
 - Existing pages: `index.html` and `melvorCalc.html`.
 - Active calculator logic is inline in `melvorCalc.html`; neither page loads `index.js`.
-- GitHub Pages hosting was confirmed on 2026-09-15 through public repository metadata and the live
-  site at https://rdharhar.github.io/. Authenticated branch/build settings remain to be checked.
+- GitHub Pages hosting and authenticated settings were confirmed on 2026-09-15:
+  https://rdharhar.github.io/ deploys from `main`, repository root `/`, using the branch-based Pages build.
 
 ## Collaboration
 
@@ -72,6 +72,17 @@ Keep detailed change records in `CHANGELOG.md`. Never store secrets or private p
 - The old standalone `concepts/workbench.css` was removed to avoid keeping a competing styling source.
 - The original calculator is not yet themed and its known defects remain outside this design change.
 - Palette selection is a visitor preference; adding future content should not depend on one palette.
+
+## Publishing workflow — confirmed 2026-09-15
+
+- Ryan authorized publication of 0.3.0. Release commit `d696b05` was pushed and its live files verified.
+- Git Credential Manager has been authorized as `RDHarHar`; use stored credentials without displaying them.
+- Repository-local commit identity uses Ryan Harwick and `RDHarHar@users.noreply.github.com`.
+- When Ryan requests publication, fetch/check `origin/main`, review and commit the intended files,
+  push normally to `main`, monitor Pages, and verify live content. Never assume a successful push means deployment succeeded.
+- Keep `.preview/` and local environment files excluded. Update `CHANGELOG.md` with actual publication evidence.
+- Lesson: Git Credential Manager's device sign-in prompt was visible with an interactive terminal (`tty: true`);
+  a noninteractive invocation stalled without displaying its authorization code. Do not store device codes or tokens.
 
 ## Known issues from initial inspection (original site)
 
