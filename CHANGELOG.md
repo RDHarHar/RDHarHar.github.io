@@ -4,6 +4,15 @@ Development versions describe completed local work. A version heading alone does
 commit, or deployment exists. Entries use America/New_York time with an explicit UTC offset.
 Keep newest versions first and record exact files, changes, validation, and outstanding limitations.
 
+## 0.10.2 — Remove the Gaming stream link
+
+- Recorded: `2026-09-15T12:52:30-04:00` (America/New_York). Publication requested; verification pending.
+- `index.html`, `concepts/workbench.html`: removed the entire Arctic Wes/Twitch stream card and
+  changed the Gaming introduction to “Small games and side projects.” Snake remains linked.
+- `README.md` describes the current Gaming content; `AGENTS.md` records the removal preference.
+- Verified both pages contain no Twitch URL or stream card and retain their Snake links.
+  No game logic changed; Git whitespace check passed.
+
 ## 0.10.1 — Snake behind-the-scenes article
 
 - Publication: release commit `9744f0961be80d7fc850696d739756994d2d0930` includes 0.10.0 and 0.10.1.

@@ -207,6 +207,10 @@ so these issues no longer apply to the current site. Preserve this record only f
 
 ## Version and record convention
 
+- On 2026-09-15, Ryan requested removing the Twitch stream link from Gaming and publishing it (0.10.2).
+  This supersedes the earlier instruction to show Arctic Wes. Keep the stream card off the current
+  Gaming section and mirrored Workbench page unless Ryan requests its return.
+
 ### Snake (0.10.0) — 2026-09-15
 
 - Ryan chose a local per-browser leaderboard for Snake at `gaming/snake.html`. Keep the scope explicit.

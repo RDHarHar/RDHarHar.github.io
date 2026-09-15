@@ -25,7 +25,7 @@ Press `Ctrl+C` in the terminal to stop the server.
 - **About me** (`#about`): photo and biography placeholders, résumé page links, and Contact me placeholders.
 - **Reports** (`#reports`): an empty collection for future statistical reports.
 - **Web Apps** (`#web-apps`): browser tools, starting with the UTC Converter.
-- **Gaming** (`#gaming`): space for future games and a link to [Arctic Wes on Twitch](https://www.twitch.tv/arcticwes).
+- **Gaming** (`#gaming`): Snake and space for future games and side projects.
 - **Settings** (`#settings`): four saved color themes.
 
 Job history, Education, and Skills are separate static pages under `about/`. Their content is explicitly
