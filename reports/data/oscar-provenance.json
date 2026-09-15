@@ -1,0 +1,18 @@
+{
+  "snapshot_date": "2026-09-15",
+  "scope": "Best Picture nominees at the 1970-2026 Oscar ceremonies; 356 films; 57 complete ceremonies",
+  "nomination_source": "https://github.com/DLu/oscar_data",
+  "nomination_commit": "c5e9716b7e020e70205d6b95f5a5678526c1b45f",
+  "nomination_file": "https://raw.githubusercontent.com/DLu/oscar_data/c5e9716b7e020e70205d6b95f5a5678526c1b45f/oscars.csv",
+  "imdb_source": "https://datasets.imdbws.com/title.ratings.tsv.gz",
+  "imdb_download_sha256": "8700293af6ec222243f03d5103c053524a8fcaae99a2cdc4719b08d8133b408d",
+  "rotten_tomatoes_source": "Individual movie pages linked in oscar-nominees.csv; Tomatometer only",
+  "collection_notes": [
+    "IMDb joined by title ID, not movie title.",
+    "Rotten Tomatoes identities matched by search title/release year, with manual resolution of ambiguous namesakes.",
+    "RT dateCreated may describe wide releases or rereleases; it does not determine ceremony membership.",
+    "All scores obtained 2026-09-15; historical rating values at Oscar time are not available in this snapshot.",
+    "Exploratory Kaggle and OscarPrediction ratings were not used in the final data.",
+    "Expanded scope requested by Ryan: 1970-2026 ceremonies, with 2026 nominees/winner checked against the official Academy ceremony page. Existing same-day observations retained."
+  ]
+}

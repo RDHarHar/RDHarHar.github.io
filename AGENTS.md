@@ -207,6 +207,32 @@ so these issues no longer apply to the current site. Preserve this record only f
 
 ## Version and record convention
 
+### Reports: Oscar ratings (0.11.0) — 2026-09-15
+
+- Ryan requested the first report on Best Picture nominees, IMDb/RT ratings, film extremes,
+  strongest/weakest years by average and total, and most/least competitive years. Use his established
+  casual, direct first-person voice, with restrained humor and no invented viewing experiences.
+- Ryan expanded the scope to all nominees at the **1970–2026 ceremonies** in 0.11.1, superseding
+  the initial 2000–2025 draft. There are 356 nominees and 57 winners across 57 complete ceremonies.
+  Keep ceremony years distinct from film-season years; 1970 includes films from the 1969 season.
+- Ryan supplied Wikipedia's Best Picture winners/nominees list for cross-checking. All 356 nominees
+  and 57 winners match by ceremony number; Wikipedia labels the rows by film-release year.
+  Preserve the comparison record under `reports/data/oscar-nomination-crosscheck.json`.
+- `reports/oscar-best-picture.html` is generated from `scripts/templates/oscar-best-picture.html`.
+  Edit the template, run `scripts/render_oscar_report.py`, and review it in the browser.
+- Preserve the dated ratings snapshot and source links under `reports/data/`. IMDb joins use title IDs;
+  RT namesakes require title/year checks. Never silently substitute Popcornmeter for Tomatometer.
+- Combined score is `(IMDb * 10 + RT) / 2`, an editorial index of different constructs. Show both
+  sources separately. Whole-field competition uses population SD.
+  Do not equate review closeness with Oscar vote margins, or current ratings with awards-night scores.
+- As of 0.11.2, use per-nominee averages for all yearly quality comparisons and omit raw totals.
+  Keep population SD (division by nominee count); omit top-two gaps and ranges from year rankings.
+  Verify replication invariance of means and SD. Normalization does not undo changing field composition.
+  Preserve ties and rank before rounding. Regenerate data with `scripts/analyze_oscars.py` and run
+  `python -m unittest discover -s tests -p test_oscar_analysis.py` when changing calculations.
+- Report, Reports card, and Home feature are local until publication is requested. Keep mirrored
+  Workbench links and static Home fallback aligned with `assets/home.js`.
+
 - On 2026-09-15, Ryan requested removing the Twitch stream link from Gaming and publishing it (0.10.2).
   This supersedes the earlier instruction to show Arctic Wes. Keep the stream card off the current
   Gaming section and mirrored Workbench page unless Ryan requests its return.

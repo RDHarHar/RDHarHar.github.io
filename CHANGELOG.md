@@ -4,6 +4,102 @@ Development versions describe completed local work. A version heading alone does
 commit, or deployment exists. Entries use America/New_York time with an explicit UTC offset.
 Keep newest versions first and record exact files, changes, validation, and outstanding limitations.
 
+## 0.11.2 — Normalize Oscar comparisons across nominee counts
+
+- Recorded: `2026-09-15T13:45:00-04:00` (America/New_York). Status: local, not published.
+- Ryan identified the larger-field advantage in combined yearly totals. All yearly quality rankings
+  now use equal-weight averages per nominee for IMDb, Tomatometer, and the combined index.
+  Film scores and the September 15 ratings snapshot remain unchanged.
+- `scripts/analyze_oscars.py`, `reports/data/oscar-analysis.json`, and `oscar-years.csv`: removed
+  raw annual totals, top-two gaps, and ranges. Retained nominee counts, source averages, combined
+  averages, and population standard deviation (division by nominee count).
+- `scripts/render_oscar_report.py`, the article template, generated report, and `assets/oscar-report.js`:
+  removed total/gap chart choices and table columns; replaced the highest-total finding card with
+  lowest average. Rewrote methodology, annual comparison, competition discussion, and conclusion.
+  Explained equal averages for five/ten equally rated films, linked the Academy's 2009/2010 lineups,
+  and distinguished arithmetic normalization from remaining differences in field composition.
+- Combined-average leaders remain 1994 (87.60) and 1970 (74.20). Closest/widest fields remain
+  2017 (1.94) and 1970 (13.50). Removed the 2011 total-based headline and top-two-gap rankings.
+- `assets/home.js`, `index.html`, and `concepts/workbench.html`: aligned the Home summary and
+  update version. Report asset and Home script cache URLs now use 0.11.2.
+- `README.md`, `reports/data/README.md`, and `AGENTS.md`: documented normalized metrics and
+  their limitations. Corrected an existing 2057 end-year typo to 2026 in README and article methodology.
+- Six calculation tests passed, including a nonconstant five-film distribution repeated to ten films:
+  all three averages and population spread are unchanged. Verified known population SD and absence
+  of retired fields. Browser checks passed at 1440/768/390/320px, including the four metric choices,
+  1994 average/2017 spread rankings, all 356 films/57 years, filters, navigation, saved theme,
+  no-JavaScript data, and no runtime errors. JavaScript syntax and Git whitespace checks passed.
+
+## 0.11.1 — Expand the Oscar report to 1970–2026
+
+- Follow-up verification on 2026-09-15, after 13:27 EDT: compared Ryan's supplied Wikipedia list
+  against all 356 nominees and 57 winners by ceremony number. No missing/extra nominees or winner
+  differences; normalized capitalization/punctuation and explicitly matched the Il Postino title variant.
+  Added `reports/data/oscar-nomination-crosscheck.json`, a source/comparison paragraph in the article
+  template and regenerated page, and documentation in the data README and project guidance.
+  Ratings, calculations, and conclusions are unchanged.
+
+- Recorded: `2026-09-15T13:24:27-04:00` (America/New_York). Status: local, not published.
+- Ryan explicitly selected 1970–2026. Added 150 nominees from the 1970–1999 ceremonies and ten
+  from 2026, bringing the report to 356 films, 57 ceremonies, and 57 winners. Checked the 2026
+  lineup and winner against the Academy's official ceremony page. Preserved existing same-day ratings;
+  retrieved additional IMDb values from the saved official download and RT scores from matched movie pages.
+- `reports/data/oscar-nominees.csv`, `oscar-analysis.json`, `oscar-years.csv`, `oscar-provenance.json`,
+  and data README: expanded complete snapshot, recomputed aggregates/ties, and documented the new scope.
+  Resolved additional title variants including Z, Star Wars, The Postman (Il Postino), and F1.
+- `scripts/analyze_oscars.py`, `scripts/render_oscar_report.py`, and template: expanded count/range
+  validation, year options, all ranking tables, chart rows, and static data. Rewrote film/year/competition
+  findings and conclusion to match the broader data; explained review counts behind three 100% RT scores.
+- Revised combined leaders: The Godfather at 94.5; lowest nominees Hello, Dolly! and Extremely Loud
+  & Incredibly Close tied at 57; lowest winner Out of Africa at 67. Highest average 1994 (87.60),
+  lowest average 1970 (74.20); highest total 2011 (852), lowest total 1970 (371). Closest field remains
+  2017; widest is now 1970. Seven ceremonies tie on a zero top-two gap; largest gap is 1973 (7.5).
+- `assets/home.js`, `index.html`, `concepts/workbench.html`, `README.md`, `AGENTS.md`: updated scope,
+  nominee counts, current version, and cache URLs to 0.11.1. Kept the report URL unchanged.
+- Six calculation tests passed, including new exact 1970/2026 nominee-list and 2026 winner checks.
+  Browser checks passed at 1440/768/390/320px: all 356 rows and 57 years, 57-winner filter,
+  boundary-year filters, updated 1994 average ranking, existing chart/filter/navigation controls,
+  saved theme, static fallback, and no runtime exceptions. Git whitespace check passed.
+
+## 0.11.0 — First report: Best Picture ratings
+
+- Recorded: `2026-09-15T13:16:25-04:00` (America/New_York). Status: local, not published.
+- Scope: all 196 Best Picture nominees in the 2000–2025 ceremonies, including 26 winners. Scope was
+  stated as a working assumption while optional nominee/year clarification remained unanswered.
+- `reports/oscar-best-picture.html`: complete first-person article in Ryan's casual, direct voice.
+  Covers highest/lowest IMDb, Tomatometer, and combined film ratings for nominees and winners;
+  highest/lowest year averages and totals; and closest/widest fields by combined-score population
+  standard deviation, plus top-two gap. Explicitly identifies ceremony years and later rating snapshots.
+- `reports/data/oscar-nominees.csv`: collected all 196 IMDb ratings/vote counts from IMDb's official
+  downloadable file and Tomatometer scores/review counts from individual RT pages on 2026-09-15.
+  Includes movie IDs, winner flags, source links, and retrieval timestamps. Title/year matching
+  resolved namesakes and remakes; the collector required the Tomatometer field. No missing values.
+- `reports/data/oscar-provenance.json`, `nomination-source-license.txt`, `README.md`: source revision,
+  attribution, IMDb-file SHA-256, scope, limitations, and refresh/reproduction instructions.
+  Exploratory third-party ratings were not used. Research HTML and bulk IMDb download stay in ignored `.preview/`.
+- `scripts/analyze_oscars.py`: validates expected nominee counts, exactly one winner per ceremony,
+  unique IDs, rating bounds, and complete coverage; writes `oscar-analysis.json` and `oscar-years.csv`.
+  Preserves ties and full-precision calculations. All five `tests/test_oscar_analysis.py` checks passed:
+  scale conversion, field-size effects, population spread vs top-two gap, ties, and snapshot completeness.
+- `scripts/templates/oscar-best-picture.html`, `scripts/render_oscar_report.py`: separate editorial
+  prose from generated ranking tables, chart values, movie rows, and finding cards. Rebuild offline;
+  manually review prose when the snapshot changes.
+- `assets/oscar-report.css`, `assets/oscar-report.js`: responsive article, six chart measures,
+  chronological/high/low ordering, year-to-nominee drilldown, title/year/winner filters, numeric sorting,
+  empty state, source links, and CSV downloads. All data remains readable without JavaScript.
+- `index.html`, `concepts/workbench.html`, `assets/home.js`: first Reports card and matching featured
+  Home update, with Home script cache version `0.11.0`. Shared theme preferences and full navigation retained.
+- Browser checks passed at 1440/768/390/320px: no page overflow, all 196 film rows and 26 chart rows,
+  filtering, empty search, chart drilldown, correct spread/total ordering, numeric film sorting,
+  Reports/Home navigation, saved Paper theme, static fallback, and no runtime exceptions.
+  Reviewed mobile screenshot; JavaScript syntax and Git whitespace checks passed.
+- Main results in this snapshot: Return of the King/Parasite tie at 92 combined; lowest nominee is
+  Extremely Loud & Incredibly Close at 57; 2016 leads average (85.3125), 2011 leads total (852),
+  2006/2009 tie for lowest total (399); 2017 has the tightest full field and 2012 the widest.
+- Interpretive limits: equal-weight blending is an editorial choice; RT positive-review share differs
+  from IMDb audience averages; year totals favor larger fields; rating closeness is not voting closeness;
+  scores are a 2026 snapshot, not historical award-night ratings. Article is not an all-time Oscar ranking.
+
 ## 0.10.2 — Remove the Gaming stream link
 
 - Recorded: `2026-09-15T12:52:30-04:00` (America/New_York). Published in commit `daa4507`.

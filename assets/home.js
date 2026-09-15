@@ -3,6 +3,13 @@
   // Newest first. Add real, reader-facing updates here when features change.
   const updates = [
     {
+      version: '0.11.2', date: '2026-09-15', category: 'Reports',
+      title: 'Best Picture, by the numbers.', shortTitle: 'Oscar nominees meet the ratings',
+      summary: 'A comparison of 356 Best Picture nominees from the 1970-2026 Oscar ceremonies using IMDb and Rotten Tomatoes ratings.',
+      details: ['The highest- and lowest-rated nominees and winners.', 'The strongest and weakest years by average per nominee.', 'The closest-rated fields, with the data to explore.'],
+      link: 'reports/oscar-best-picture.html', linkText: 'Read the report'
+    },
+    {
       version: '0.9.0', date: '2026-09-15', category: 'Build notes',
       title: 'Behind the converter.', shortTitle: 'Code, decisions, and a few lessons',
       summary: 'A look at how the UTC & Epoch Converter developed, from a rough sketch to the details that make time conversion interesting.',

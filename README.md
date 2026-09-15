@@ -23,13 +23,35 @@ Press `Ctrl+C` in the terminal to stop the server.
 
 - **Home** (`#home`, the default): a featured latest update, five recent updates, and FAQ/Quick info placeholders.
 - **About me** (`#about`): photo and biography placeholders, résumé page links, and Contact me placeholders.
-- **Reports** (`#reports`): an empty collection for future statistical reports.
+- **Reports** (`#reports`): statistical articles, starting with Best Picture nominees and their ratings.
 - **Web Apps** (`#web-apps`): browser tools, starting with the UTC Converter.
 - **Gaming** (`#gaming`): Snake and space for future games and side projects.
 - **Settings** (`#settings`): four saved color themes.
 
 Job history, Education, and Skills are separate static pages under `about/`. Their content is explicitly
 placeholder text; there are no fabricated credentials or working contact form yet.
+
+## First report: Best Picture, by the numbers
+
+Open http://127.0.0.1:8000/reports/oscar-best-picture.html or follow **Reports** / the latest Home update.
+The report compares all 356 Best Picture nominees at the 1970–2026 ceremonies, with winners identified
+separately. IMDb and Rotten Tomatoes scores were collected on September 15, 2026. It includes film
+rankings, yearly averages per nominee, and rating-based competitiveness, with interactive charts and filters.
+
+The combined index equally weights IMDb × 10 and the Tomatometer. Competition means the spread of
+ratings across the whole field, not actual Academy vote margins. Scope, limitations, and sources
+are explained in the article. CSV downloads and provenance are under `reports/data/`.
+
+Version 0.11.2 is local and not published. Rebuild the report from its saved data with:
+
+```powershell
+python scripts/analyze_oscars.py
+python -m unittest discover -s tests -p test_oscar_analysis.py
+python scripts/render_oscar_report.py
+```
+
+Edit article prose in `scripts/templates/oscar-best-picture.html`, then render it. Review written
+findings whenever ratings change; see `reports/data/README.md` for the data workflow.
 
 ## UTC & Epoch Converter
 

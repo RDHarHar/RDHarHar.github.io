@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-theme="graphite">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="I compared 356 Best Picture nominees from the 1970–2026 Oscars using IMDb and Rotten Tomatoes: the highest ratings, strongest years, and closest fields.">
+  <title>Best Picture, by the numbers | Ryan Harwick</title>
+  <script src="../assets/site.js?v=0.9.4"></script>
+  <link rel="stylesheet" href="../assets/site.css?v=0.9.4">
+  <link rel="stylesheet" href="../assets/oscar-report.css?v=0.11.2">
+  <script src="../assets/oscar-report.js?v=0.11.2" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+  <header class="header">
+    <a class="brand" href="../index.html#home"><span class="monogram" aria-hidden="true">rh<span>_</span></span><span>Ryan Harwick</span></a>
+    <div class="navigation"><nav class="section-links" aria-label="Site navigation"><a href="../index.html#home">Home</a><a href="../index.html#about">About me</a><a href="../index.html#reports" aria-current="location">Reports</a><a href="../index.html#web-apps">Web Apps</a><a href="../index.html#gaming">Gaming</a><a href="../index.html#settings">Settings</a></nav><a class="github" href="https://github.com/RDHarHar" target="_blank" rel="noopener">GitHub &#8599;</a></div>
+  </header>
+  <main id="main" class="report">
+    <a class="back-link" href="../index.html#reports">&larr; Back to Reports</a>
+    <article>
+      <header class="report-header">
+        <p class="eyebrow">01 / Reports / Movies</p>
+        <h1>Best Picture,<br><span>by the numbers.</span></h1>
+        <p class="deck">Which Oscar nominee has the best ratings? Which year had the strongest lineup? And when was picking a favorite actually difficult? I put IMDb and Rotten Tomatoes next to each other to see what shook out.</p>
+        <p class="report-meta">By Ryan Harwick &middot; September 15, 2026<br>356 nominees &middot; 57 ceremonies &middot; Ratings snapshot: September 15, 2026</p>
+        <div class="report-scope">This first report covers the <strong>1970–2026 Oscar ceremonies</strong>, including every Best Picture nominee and marking the winners. Years below mean ceremony years: the 1970 ceremony honored the 1969 film season, and the 2026 ceremony honored 2025. These are later ratings, collected in September 2026, rather than scores from awards night. <a href="#method">Method and sources &darr;</a></div>
+      </header>
+      <nav class="report-nav" aria-label="Report sections"><a href="#movies">The movies</a><a href="#years">The strongest years</a><a href="#competition">The closest fields</a><a href="#explore">Explore the numbers</a><a href="#method">Method &amp; data</a></nav>
+      <div class="finding-grid">{{FINDINGS}}</div>
+      <section id="movies">
+        <p class="eyebrow">Question 01</p><h2>Which movie comes out on top?</h2>
+        <div class="prose">
+          <p>I used three views: IMDb on its own, Rotten Tomatoes on its own, and a combined score. For the combined score, I multiplied IMDb by 10 and averaged it with the Tomatometer percentage. Both get half the weight. It's my comparison rule, with both original numbers still visible.</p>
+          <p><strong><em>The Godfather</em> comes out on top at 94.5.</strong> Its 9.2 on IMDb and 97% on Rotten Tomatoes put it just ahead of <em>Schindler's List</em> at 94.0. IMDb's individual leader is <em>The Shawshank Redemption</em>, at 9.3. Adding the critics' score changes the order.</p>
+          <p>At the other end, <strong><em>Hello, Dolly!</em> and <em>Extremely Loud &amp; Incredibly Close</em> tie at 57.0</strong>. Rotten Tomatoes' lowest score is also a tie: <em>Anne of the Thousand Days</em> and <em>Hello, Dolly!</em>, both at 43%. IMDb's lowest is <em>Emilia Pérez</em>, at 5.3. That disagreement is part of why I wanted both sources.</p>
+        </div>
+        {{FILM_RANKINGS}}
+        <p class="prose">Three nominees reach 100% on the Tomatometer: <em>Atlantic City</em>, <em>The Dresser</em>, and <em>A Room with a View</em>. Those scores come from 37, 15, and 37 reviews respectively in this snapshot. A perfect percentage from 15 reviews and one built from hundreds of reviews carry different amounts of evidence; I kept the counts in the downloadable data.</p>
+        <h3>What if I only count the winners?</h3>
+        <div class="prose"><p><strong><em>The Godfather</em> also leads the winners.</strong> At the other end, <em>Out of Africa</em> has the lowest combined score, at 67.0, and the lowest Tomatometer score among winners, at 62%. IMDb's lowest-rated winners are <em>Chariots of Fire</em> and <em>Shakespeare in Love</em>, tied at 7.1. So even “lowest-rated Best Picture winner” needs a small follow-up: according to whom?</p></div>
+        {{WINNER_RANKINGS}}
+        <p class="report-note">All ties are shown. Movie titles link to the collected Rotten Tomatoes source; the full table also links to IMDb and the relevant Academy ceremony.</p>
+      </section>
+      <section id="years">
+        <p class="eyebrow">Question 02</p><h2>Which year had the strongest lineup?</h2>
+        <div class="prose">
+          <p><strong>The 1994 ceremony leads on combined average, at 87.60.</strong> That is the lineup of <em>Schindler's List</em>, <em>The Fugitive</em>, <em>In the Name of the Father</em>, <em>The Piano</em>, and <em>The Remains of the Day</em>. Its lowest combined score is still 82.5. The next-highest average belongs to 1973, at 86.50.</p>
+          <p>Separating the sources changes the answer. <strong>IMDb favors 1995</strong>, averaging 8.30 across a field that includes <em>The Shawshank Redemption</em>, <em>Pulp Fiction</em>, and <em>Forrest Gump</em>. <strong>Rotten Tomatoes favors 1994</strong>, averaging 94.8%. The combined-average low is <strong>1970, at 74.20</strong>. IMDb's lowest average is 1971, at 7.20, while critics' lowest average is 1970, at 71.6%.</p>
+          <p>I compare years using the <strong>average per nominee</strong>. A bigger ballot should not get free points just for being bigger. Each film gets one equal share of its year's score.</p>
+        </div>
+        {{YEAR_RANKINGS}}
+        <div class="prose"><p class="formula">Five films averaging 80 and ten films averaging 80 both score 80 here. Adding the scores and dividing by the number of nominees gives me a comparison on the same scale.</p><p>The field grew from five nominees at the <a href="https://www.oscars.org/oscars/ceremonies/2009">2009 ceremony</a> to ten at the <a href="https://www.oscars.org/oscars/ceremonies/2010">2010 ceremony</a>. Raw totals mostly hand out points for the extra seats. All three yearly quality measures here use averages instead.</p></div>
+      </section>
+      <section id="competition">
+        <p class="eyebrow">Question 03</p><h2>Which years were the most competitive?</h2>
+        <div class="prose">
+          <p>I used “competitive” to mean <strong>close together in ratings</strong>. My measure is the spread of the combined scores, calculated with population standard deviation. In plain English: how far do the nominees tend to sit from their year's average? Smaller means a tighter bunch.</p>
+          <p><strong>2017 is the closest field, with a spread of 1.94 points.</strong> All nine nominees fall between 82 and 87. <em>Manchester by the Sea</em> leads this rating measure at 87; <em>Moonlight</em>, the Oscar winner, is at 86. There is very little daylight across that lineup.</p>
+          <p><strong>1970 has the widest spread, at 13.50 points.</strong> Its scores run from 57 for <em>Hello, Dolly!</em> to 87.5 for <em>Z</em>. <em>Anne of the Thousand Days</em> sits at 58.5, while <em>Butch Cassidy and the Sundance Kid</em> and winner <em>Midnight Cowboy</em> sit above 83. The ratings divide this lineup pretty sharply. “Least competitive” here means the ratings were uneven, not that the winner was obvious to voters.</p>
+        </div>
+        {{COMPETITION}}
+        <div class="prose">
+          <p>The spread calculation divides the squared differences from the average by the number of nominees before taking the square root. Repeating the same set of scores in a field twice the size gives the same spread. I use the whole field here; a gap between just the top two can shrink simply because there are more films in the running.</p>
+          <p>This handles the arithmetic of different field sizes. It cannot undo changes in which films get nominated: adding more slots may bring in a different mix of scores. And these are audience and critic ratings, not the Academy's vote margins or what people thought on awards night.</p>
+        </div>
+      </section>
+      <section id="explore">
+        <h2>Have a look at the numbers.</h2>
+        <p class="prose">Switch the measure or sort the years below. Click a year to see its nominees. The table includes source links so you can check a rating or find something to watch.</p>
+        <div class="controls"><label for="chart-metric">Measure<select id="chart-metric"><option value="combined">Combined average</option><option value="imdb">IMDb average</option><option value="rt">Tomatometer average</option><option value="spread">Whole-field spread</option></select></label><label for="chart-order">Order<select id="chart-order"><option value="year">Ceremony year</option><option value="high">Highest first</option><option value="low">Lowest first</option></select></label></div>
+        <div class="chart"><p id="chart-scale" class="chart-scale" role="status">Combined average · 0–100 points. Higher means a higher-rated field.</p><div id="year-chart">{{CHART}}</div></div>
+        <details><summary>All 57 years: averages and spread</summary>{{YEAR_TABLE}}</details>
+        <details id="film-data" open><summary>All 356 nominees and their source links</summary>
+          <div class="controls"><label for="film-search">Find a movie<input id="film-search" type="search" placeholder="Search titles"></label><label for="film-year">Ceremony<select id="film-year"><option value="">All years</option>{{YEAR_OPTIONS}}</select></label><label for="film-scope">Include<select id="film-scope"><option value="all">All nominees</option><option value="winners">Winners only</option></select></label><label for="film-sort">Sort by<select id="film-sort"><option value="year">Ceremony year</option><option value="combined">Combined score</option><option value="imdb">IMDb rating</option><option value="rt">Tomatometer</option></select></label></div>
+          <p id="film-count" class="report-note" role="status">356 films shown.</p>{{FILMS}}<p id="no-films" hidden>No matching films. Try another title or year.</p>
+        </details>
+        <noscript><p>The full tables and article work without JavaScript. Enable JavaScript to filter the films and change the chart.</p></noscript>
+      </section>
+      <section id="method">
+        <h2>What went into this.</h2>
+        <div class="prose">
+          <p>I included every Best Picture nominee from the <strong>1970 through 2026 ceremonies</strong>: 356 films, with both scores available for all of them. These are the boundaries of this first report; the rankings aren't claims about the entire history of the Oscars.</p>
+          <p>I used <a href="https://github.com/DLu/oscar_data">DLu's Academy nomination dataset</a> to identify the films and their IMDb IDs, with <a href="https://www.oscars.org/oscars/ceremonies/2026">the Academy's ceremony records</a> as the official reference. IMDb scores and vote counts come from <a href="https://datasets.imdbws.com/title.ratings.tsv.gz">IMDb's downloadable ratings file</a>. Each Rotten Tomatoes score comes from its movie page, linked in the table. I matched titles and release years to avoid mixing up remakes and other films with the same name. <a href="data/oscar-provenance.json">The source record</a> includes the nomination revision and ratings-file checksum.</p>
+          <p>I also cross-checked all 356 nominees and 57 winners against <a href="https://en.wikipedia.org/wiki/Academy_Award_for_Best_Picture#Winners_and_nominees">Wikipedia's winners and nominees list</a>. They match, allowing for title variations such as <em>Il Postino: The Postman</em>. Wikipedia labels the rows by film-release year; I matched by ceremony number to keep the years aligned. <a href="data/oscar-nomination-crosscheck.json">The comparison record is here.</a></p>
+          <p><a href="https://help.imdb.com/article/imdb/track-movies-tv/weighted-average-ratings/GWT2DSBYVT2F25SK">IMDb uses a weighted audience average</a>. <a href="https://www.rottentomatoes.com/about">The Tomatometer is the percentage of positive critic reviews</a>, not the critics' average mark out of 100. I used the Tomatometer, not Rotten Tomatoes' audience score. Putting both on a similar scale doesn't make them the same kind of measurement.</p>
+          <p class="formula"><strong>Film combined score</strong> = (IMDb &times; 10 + Tomatometer) &divide; 2.<br><strong>Year average</strong> = sum of film scores &divide; number of nominees.<br><strong>Spread</strong> = square root of [sum of squared differences from the year's combined average &divide; number of nominees]. This is population standard deviation.</p>
+          <p>Every film counts equally within its year. I didn't give a heavily rated film extra weight, and I didn't weight by box office or number of reviews. Ties stay tied. Calculations use the recorded scores before rounding the displayed results.</p>
+          <p>The ratings were collected on September 15, 2026. They can change, especially for newer films, and these audiences aren't a random sample of everyone who watched. The combined ranking also depends on my equal-weight choice. A tiny lead is worth treating as a tiny lead.</p>
+        </div>
+        <div class="download-links"><a href="data/oscar-nominees.csv" download>Download movie data (CSV)</a><a href="data/oscar-years.csv" download>Download yearly results (CSV)</a><a href="../scripts/analyze_oscars.py">Calculation code</a><a href="data/nomination-source-license.txt">Nomination data attribution</a></div>
+      </section>
+      <section><h2>My takeaway.</h2><div class="prose"><p>The highest-rated film, the strongest average lineup, and the closest field answer different questions. I want the year comparisons to hold up whether there are five nominees or ten. More slots do not automatically mean better movies.</p><p>For this snapshot, I'd point to <em>The Godfather</em> for the combined film score, 1994 for the strongest average, 1970 for the weakest average, and 2017 for the tightest field. Turns out the older nominees weren't going to sit quietly at the bottom of the spreadsheet.</p></div></section>
+    </article>
+  </main>
+  <footer><span>Ryan Harwick <span class="footer-dot">/</span> A work in progress.</span><a href="../index.html#reports">Back to Reports &#8599;</a></footer>
+</div>
+</body>
+</html>

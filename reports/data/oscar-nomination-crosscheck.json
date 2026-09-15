@@ -1,0 +1,18 @@
+{
+  "checked_date": "2026-09-15",
+  "source": "https://en.wikipedia.org/wiki/Academy_Award_for_Best_Picture#Winners_and_nominees",
+  "scope": "1970-2026 ceremony years (42nd-98th awards)",
+  "matched_nominees": 356,
+  "matched_winners": 57,
+  "missing": [],
+  "extra": [],
+  "winner_mismatches": [],
+  "title_aliases": [
+    {
+      "wikipedia": "Il Postino: The Postman",
+      "report": "The Postman (Il Postino)",
+      "ceremony_year": 1996
+    }
+  ],
+  "method": "Compared nominee sets and first-listed winners per ceremony number, ignoring capitalization, accents and punctuation; explicitly matched the Il Postino title variant. Wikipedia labels rows by film-release year."
+}
