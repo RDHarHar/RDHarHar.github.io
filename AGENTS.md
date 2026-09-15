@@ -13,8 +13,8 @@ Keep detailed change records in `CHANGELOG.md`. Never store secrets or private p
 - Workspace: `E:\Personal Website`.
 - Imported baseline: `3a5be56308cbfbac516530f4fa6bc0742628f2c0` on `main`.
 - Stack: static HTML, inline CSS, browser JavaScript; no dependencies or build process.
-- Existing pages: `index.html` and `melvorCalc.html`.
-- Active calculator logic is inline in `melvorCalc.html`; neither page loads `index.js`.
+- Current pages: `index.html`, résumé placeholders under `about/`, and design studies under `concepts/`.
+- The Melvor calculator and unused `index.js` were removed at Ryan's request in 0.4.0.
 - GitHub Pages hosting and authenticated settings were confirmed on 2026-09-15:
   https://rdharhar.github.io/ deploys from `main`, repository root `/`, using the branch-based Pages build.
 
@@ -73,6 +73,21 @@ Keep detailed change records in `CHANGELOG.md`. Never store secrets or private p
 - The original calculator is not yet themed and its known defects remain outside this design change.
 - Palette selection is a visitor preference; adding future content should not depend on one palette.
 
+## 2026-09-15 — Content structure (0.4.0)
+
+- Exact tagline: “Building things. Breaking things. Learning along the way.”
+- Section order is About me, Reports, Web Apps, Gaming, then Settings. About me is the default.
+- Use distinct static pages under `about/` for résumé content; initial pages are Job history, Education, and Skills.
+- Biography, portrait, work/education/skills details, and contact information are placeholders until supplied.
+  Do not add fabricated history, credentials, contact endpoints, or a pretend-working contact form.
+- Reports will contain statistical reports supplied by Ryan. Web Apps and Gaming have no posted projects yet.
+- Ryan provided the Twitch channel https://www.twitch.tv/arcticwes for Arctic Wes; link to it from Gaming.
+  Do not show a live/offline status unless backed by actual stream data.
+- The calculator was removed completely, including its unused script and links in alternative design concepts.
+- Shared theme code must work on both tabbed pages and résumé pages without Settings controls.
+- Keep responsive tabs keyboard-accessible, and use `#about`, `#reports`, `#web-apps`, `#gaming`, and `#settings`.
+- Ryan requested publication of all 0.4.0 changes on 2026-09-15; see `CHANGELOG.md` for verification evidence.
+
 ## Publishing workflow — confirmed 2026-09-15
 
 - Ryan authorized publication of 0.3.0. Release commit `d696b05` was pushed and its live files verified.
@@ -86,7 +101,8 @@ Keep detailed change records in `CHANGELOG.md`. Never store secrets or private p
 
 ## Known issues from initial inspection (original site)
 
-These predate setup and remain unfixed. Game formulas have not been verified against current rules.
+Historical observations only: the calculator and its unused script were removed in 0.4.0,
+so these issues no longer apply to the current site. Preserve this record only for historical context.
 
 - `melvorCalc.html`: empty fields produce `NaN`; placeholders do not provide default values.
 - Its strict comparisons can incorrectly select melee when ranged and magic tie above melee.

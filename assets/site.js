@@ -21,11 +21,11 @@
       if (persist) {
         try { localStorage.setItem(storageKey, current); saved = true; } catch { /* Keep the in-session choice. */ }
       }
-      status.textContent = `${themes[current]} selected.${persist ? (saved ? ' Saved for your next visit.' : ' Browser storage is unavailable; applied for this visit.') : ''}`;
+      if (status) status.textContent = `${themes[current]} selected.${persist ? (saved ? ' Saved for your next visit.' : ' Browser storage is unavailable; applied for this visit.') : ''}`;
     }
     radios.forEach(radio => radio.addEventListener('change', () => applyTheme(radio.value)));
-    document.querySelector('#reset-theme').addEventListener('click', () => applyTheme('graphite'));
-    document.querySelector('#theme-form').addEventListener('submit', event => event.preventDefault());
+    document.querySelector('#reset-theme')?.addEventListener('click', () => applyTheme('graphite'));
+    document.querySelector('#theme-form')?.addEventListener('submit', event => event.preventDefault());
     applyTheme(current, false);
     const tabs = [...document.querySelectorAll('[role="tab"]')];
     function showTab(id, focus = false) {
@@ -36,7 +36,8 @@
         document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
         if (active && focus) tab.focus();
       });
-      document.title = `Ryan Harwick — ${id === 'settings' ? 'Settings' : 'Projects'}`;
+      const selected = tabs.find(tab => tab.id === `${id}-tab`);
+      if (selected) document.title = `Ryan Harwick — ${selected.textContent.trim()}`;
     }
     function selectTab(tab) {
       const id = tab.id.replace('-tab', '');
@@ -54,7 +55,12 @@
         if (next !== undefined) { event.preventDefault(); selectTab(tabs[next]); }
       });
     });
-    const restoreTab = () => showTab(location.hash === '#settings' ? 'settings' : 'projects');
+    const restoreTab = () => {
+      if (!tabs.length) return;
+      const id = location.hash.slice(1);
+      if (id === 'main') return; // A skip link must not change the open section.
+      showTab(tabs.some(tab => tab.id === `${id}-tab`) ? id : 'about');
+    };
     window.addEventListener('hashchange', restoreTab);
     window.addEventListener('storage', event => {
       if (event.key === storageKey || event.key === null) applyTheme(isTheme(event.newValue) ? event.newValue : 'graphite', false);

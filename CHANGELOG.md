@@ -4,6 +4,68 @@ Development versions describe completed local work. A version heading alone does
 commit, or deployment exists. Entries use America/New_York time with an explicit UTC offset.
 Keep newest versions first and record exact files, changes, validation, and outstanding limitations.
 
+## 0.4.0 — About me, Reports, Web Apps, and Gaming
+
+- Recorded: `2026-09-15T11:05:40-04:00` (America/New_York).
+- Status: publication requested on 2026-09-15; deployment verification pending.
+- Request: replace the tagline, remove the Melvor calculator, scaffold the four content sections,
+  add résumé and contact placeholders, and link Arctic Wes on Twitch.
+
+### Content and navigation
+
+- Replaced the hero text with the exact requested tagline: “Building things. Breaking things. Learning along the way.”
+- Replaced Projects with About me, Reports, Web Apps, and Gaming tabs, in that order, followed by Settings.
+- About me opens by default, with a labeled portrait placeholder, Ryan's name, biography placeholder,
+  résumé page links, and a Contact me section awaiting details. No personal history or contact addresses were invented.
+- Added actual Job history, Education, and Skills pages with labeled content placeholders, sibling navigation,
+  and a back link to About me. Saved themes apply to these pages as well.
+- Reports has an explicit empty state for statistical reports; Web Apps has an empty state for future apps.
+- Gaming includes an empty state for future games and a Twitch card linking to the exact URL supplied by Ryan,
+  `https://www.twitch.tv/arcticwes`, in a new tab. No live-stream status is implied.
+- Removed the calculator HTML and unused standalone calculation JavaScript. Its old URL is intentionally retired.
+- Updated alternative concept cards to point to the Web Apps section, removing retired calculator references.
+
+### File-by-file changes
+
+| File | Action | Specific changes |
+| --- | --- | --- |
+| `index.html` | Updated | New navigation, exact tagline, About me profile/contact placeholders, résumé links, empty Reports/Web Apps sections, Gaming/Twitch card, updated title/description, and no-script explanation. |
+| `about/job-history.html` | Added | Role/company/date and responsibilities/achievements placeholders, shared theme assets, résumé subnavigation, and About me back link. |
+| `about/education.html` | Added | School/program/date and certifications/course placeholders with the same navigation and theme support. |
+| `about/skills.html` | Added | Skill category and tools/technology placeholders with the same navigation and theme support. |
+| `assets/site.css` | Updated | Profile/photo placeholder, compact résumé links, contact layout, empty states, stream card, résumé page styling, smaller tagline, and wrapping mobile navigation. |
+| `assets/site.js` | Updated | Generalized section/hash/title handling, About me fallback, skip-link preservation, and optional Settings controls so standalone résumé pages can reuse theme restoration. |
+| `concepts/workbench.html` | Updated | Mirrors the new homepage with directory-correct links and shared assets. |
+| `concepts/editorial.html` | Updated | Replaced calculator content with a future Web Apps entry linking to the current site. |
+| `concepts/playground.html` | Updated | Replaced calculator content and artwork wording with future app content linking to Web Apps. |
+| `concepts/index.html` | Updated | Removed gallery footer claim that the calculator is the featured project. |
+| `concepts/gallery.js` | Updated | Describes Workbench's current content sections and Settings themes. |
+| `melvorCalc.html` | Removed | Removed the retired calculator page. |
+| `index.js` | Removed | Removed its unused standalone calculation functions. |
+| `README.md` | Updated | Documents sections, résumé pages, calculator removal, and local 0.4.0 status. |
+| `AGENTS.md` | Updated | Records exact tagline, section order, placeholder boundaries, provided Twitch URL, calculator removal, and shared script requirements. |
+| `CHANGELOG.md` | Updated | Added this detailed version record. |
+
+### Validation
+
+- Headless Edge checked all five tabs at 1440px, 768px, 390px, and 320px: correct direct URL/selection,
+  one visible panel, and no horizontal page overflow in all 20 combinations.
+- Confirmed exact tagline text, provided Twitch URL, keyboard arrow/End navigation, and all four saved themes.
+- Checked all three résumé pages at 1440px, 390px, and 320px: restored Paper theme, correct sibling
+  selection, and no horizontal overflow in all nine combinations.
+- Verified résumé back navigation, updated Workbench Gaming preview, and unknown-hash fallback.
+- No JavaScript runtime exceptions occurred during the final browser run.
+- Visually reviewed desktop About me and phone About me/Gaming screenshots.
+- All eight HTML pages return HTTP 200 locally, and all local file links/assets resolve.
+- Source search confirms no calculator references remain in served HTML/JavaScript.
+- Confirmed both retired files are absent. JavaScript syntax and Git whitespace checks passed.
+
+### Remaining content
+
+- Awaiting profile photo, biography, employment/education/skills details, contact information, reports, apps, and games.
+- Contact is a placeholder section, not a submission form. Twitch is an outbound link, not an embedded player.
+- Browser review used responsive Edge viewports; no physical-device or full screen-reader audit was performed.
+
 ## 0.3.0 — Compact Workbench homepage and theme Settings
 
 - Recorded: `2026-09-15T10:45:31-04:00` (America/New_York).

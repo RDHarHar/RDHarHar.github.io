@@ -1,6 +1,6 @@
 const concepts = {
   editorial: { name: 'Editorial', description: 'Warm paper, olive accents, and generous serif type. A thoughtful home for projects and future writing.' },
-  workbench: { name: 'Workbench', description: 'The selected direction, refined: compact spacing, a streamlined project row, and four color themes in Settings.' },
+  workbench: { name: 'Workbench', description: 'The selected direction: About me, Reports, Web Apps, Gaming, and four color themes in Settings.' },
   playground: { name: 'Playground', description: 'Cobalt blue, citrus, and oversized lettering. A lively, expressive home with a playful project shelf.' }
 };
 let preview = document.querySelector('#preview');

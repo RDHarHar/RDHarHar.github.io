@@ -19,6 +19,17 @@ python -m http.server 8000 --bind 127.0.0.1
 Open http://127.0.0.1:8000/ in a browser. Refresh after saving edits.
 Press `Ctrl+C` in the terminal to stop the server.
 
+## Site sections
+
+- **About me** (`#about`, the default): photo and biography placeholders, résumé page links, and Contact me placeholders.
+- **Reports** (`#reports`): an empty collection for future statistical reports.
+- **Web Apps** (`#web-apps`): an empty collection for future browser tools and apps.
+- **Gaming** (`#gaming`): space for future games and a link to [Arctic Wes on Twitch](https://www.twitch.tv/arcticwes).
+- **Settings** (`#settings`): four saved color themes.
+
+Job history, Education, and Skills are separate static pages under `about/`. Their content is explicitly
+placeholder text; there are no fabricated credentials or working contact form yet.
+
 ## Style concepts
 
 The current homepage uses the selected **Workbench** direction with a compact layout.
@@ -33,17 +44,16 @@ You can bookmark a choice, for example `http://127.0.0.1:8000/concepts/?style=wo
 The three standalone HTML pages also work directly from disk or from the links below the preview.
 
 Editorial and Playground remain exploratory alternatives. Workbench previews the current homepage design.
-The calculator remains at its original URL; its older appearance and behavior are unchanged.
+The Melvor calculator and its unused script were removed in 0.4.0; its old URL is retired.
 
 ## Project files
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Compact Workbench homepage with Projects and theme Settings tabs. |
+| `index.html` | Compact Workbench homepage with About me, Reports, Web Apps, Gaming, and Settings tabs. |
+| `about/` | Job history, Education, and Skills placeholder pages. |
 | `assets/site.css` | Shared responsive homepage styles and four color palettes. |
 | `assets/site.js` | Theme persistence, reset, accessible tabs, and browser navigation. |
-| `melvorCalc.html` | Combat calculator with active JavaScript inline. |
-| `index.js` | Older calculator functions; neither page loads this file. |
 | `AGENTS.md` | Persistent guidance, design decisions, lessons, and known issues. |
 | `CHANGELOG.md` | Detailed, dated development versions and validation records. |
 | `.gitignore` | Excludes local machine files and private environment files. |
@@ -59,6 +69,7 @@ The calculator remains at its original URL; its older appearance and behavior ar
 
 Development versions in `CHANGELOG.md` do not imply a Git tag or live deployment.
 Version 0.3.0 was published on 2026-09-15.
+Version 0.4.0 adds the four content sections and résumé placeholders; see `CHANGELOG.md` for publication status.
 
 ## Publishing
 

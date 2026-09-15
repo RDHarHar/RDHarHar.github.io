@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ryan Harwick's personal home for projects, tools, and experiments.">
-  <title>Ryan Harwick — Projects</title>
+  <meta name="description" content="About Ryan Harwick, statistical reports, web apps, and gaming.">
+  <title>Ryan Harwick — About me</title>
   <script src="../assets/site.js"></script>
   <link rel="stylesheet" href="../assets/site.css">
 </head>
@@ -15,29 +15,47 @@
       <a class="brand" href="../index.html" aria-label="Ryan Harwick, home"><span class="monogram" aria-hidden="true">rh<span>_</span></span><span>Ryan Harwick</span></a>
       <div class="navigation">
         <div class="tabs" role="tablist" aria-label="Site sections">
-          <button id="projects-tab" type="button" role="tab" aria-selected="true" aria-controls="projects-panel" tabindex="0">Projects</button>
+          <button id="about-tab" type="button" role="tab" aria-selected="true" aria-controls="about-panel" tabindex="0">About me</button>
+          <button id="reports-tab" type="button" role="tab" aria-selected="false" aria-controls="reports-panel" tabindex="-1">Reports</button>
+          <button id="web-apps-tab" type="button" role="tab" aria-selected="false" aria-controls="web-apps-panel" tabindex="-1">Web Apps</button>
+          <button id="gaming-tab" type="button" role="tab" aria-selected="false" aria-controls="gaming-panel" tabindex="-1">Gaming</button>
           <button id="settings-tab" type="button" role="tab" aria-selected="false" aria-controls="settings-panel" tabindex="-1">Settings</button>
         </div>
         <a class="github" href="https://github.com/RDHarHar" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </header>
     <main id="main">
-      <section id="projects-panel" role="tabpanel" aria-labelledby="projects-tab" tabindex="0">
+      <section id="about-panel" role="tabpanel" aria-labelledby="about-tab" tabindex="0">
         <div class="hero">
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A personal workspace</p>
-          <h1>A place for the<br>things I <span>build.</span></h1>
-          <p class="intro">I'm Ryan. This is a home for my tools, experiments,<br class="desktop-break"> and ideas in motion.</p>
+          <h1 class="tagline">Building things. Breaking things.<br> <span>Learning along the way.</span></h1>
         </div>
-        <section class="projects" aria-labelledby="project-heading">
-          <div class="section-heading"><h2 id="project-heading" class="eyebrow">01 / Projects</h2><span class="subtle">Small things, made with curiosity.</span></div>
-          <a class="project-row" href="../melvorCalc.html">
-            <div class="project-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="project-copy"><span class="eyebrow category">Game utility</span><h3>Melvor Combat Calculator</h3><p>Turn your skill levels into a combat level.</p></div>
-            <span class="project-type">HTML / JS</span><span class="project-arrow" aria-hidden="true">↗</span>
-          </a>
-          <div class="next-note"><span aria-hidden="true">+</span><p>A little room for whatever comes next.</p></div>
+        <section aria-labelledby="about-heading">
+          <div class="section-heading"><h2 id="about-heading" class="eyebrow">01 / About me</h2><span class="subtle">The person behind the projects.</span></div>
+          <div class="profile">
+            <div class="portrait-placeholder"><svg viewBox="0 0 64 64" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="32" cy="23" r="10"/><path d="M12 54c0-12 8-19 20-19s20 7 20 19"/></svg><span>Photo coming soon</span></div>
+            <div class="bio-placeholder"><p class="eyebrow">Hello, I'm</p><h2>Ryan Harwick</h2><p class="placeholder-label">Biography coming soon</p><p>A little about my background, interests, and the things I enjoy working on will go here.</p></div>
+          </div>
+          <nav class="resume-links" aria-label="About me pages">
+            <a href="../about/job-history.html"><span><strong>Job history</strong><small>Roles, experience, and highlights</small></span><span aria-hidden="true">↗</span></a>
+            <a href="../about/education.html"><span><strong>Education</strong><small>Education and certifications</small></span><span aria-hidden="true">↗</span></a>
+            <a href="../about/skills.html"><span><strong>Skills</strong><small>Tools, strengths, and expertise</small></span><span aria-hidden="true">↗</span></a>
+          </nav>
         </section>
-        <div class="source"><span>Curious about how it's made?</span><a href="https://github.com/RDHarHar/RDHarHar.github.io" target="_blank" rel="noopener">Explore the source ↗</a></div>
+        <section class="contact-section" aria-labelledby="contact-heading"><div><p class="eyebrow">Let's connect</p><h2 id="contact-heading">Contact me</h2></div><div><p>Contact details coming soon.</p><p class="subtle">A place for email and other ways to get in touch.</p></div></section>
+      </section>
+      <section id="reports-panel" role="tabpanel" aria-labelledby="reports-tab" tabindex="0" hidden>
+        <div class="section-intro"><p class="eyebrow">02 / Reports</p><h1>Looking closer<br>at the <span>numbers.</span></h1><p class="intro">A home for statistical reports and analysis.</p></div>
+        <div class="empty-state"><span class="empty-symbol" aria-hidden="true">▥</span><h2>No reports yet.</h2><p>Reports will appear here as they're ready to share.</p><span class="empty-label">The collection starts here</span></div>
+      </section>
+      <section id="web-apps-panel" role="tabpanel" aria-labelledby="web-apps-tab" tabindex="0" hidden>
+        <div class="section-intro"><p class="eyebrow">03 / Web Apps</p><h1>Ideas you can<br><span>interact with.</span></h1><p class="intro">A space for useful tools and browser-based experiments.</p></div>
+        <div class="empty-state"><span class="empty-symbol" aria-hidden="true">&lt;/&gt;</span><h2>No web apps yet.</h2><p>New tools and apps will live here.</p><span class="empty-label">Room for the next idea</span></div>
+      </section>
+      <section id="gaming-panel" role="tabpanel" aria-labelledby="gaming-tab" tabindex="0" hidden>
+        <div class="section-intro"><p class="eyebrow">04 / Gaming</p><h1>A little room<br>to <span>play.</span></h1><p class="intro">Small games, side projects, and time on stream.</p></div>
+        <div class="stream-card"><span class="stream-icon" aria-hidden="true">▶</span><div><p class="eyebrow">On Twitch</p><h2>Arctic Wes</h2><p>Find me on stream.</p></div><a class="stream-link" href="https://www.twitch.tv/arcticwes" target="_blank" rel="noopener">Watch Arctic Wes ↗</a></div>
+        <div class="empty-state compact-empty"><h2>No games posted yet.</h2><p>Little games and gaming projects will appear here.</p></div>
       </section>
       <section id="settings-panel" role="tabpanel" aria-labelledby="settings-tab" tabindex="0" hidden>
         <div class="settings-heading"><p class="eyebrow">Make yourself at home</p><h1>A change of <span>scenery.</span></h1><p class="intro">Same workspace. Your colors.</p></div>
@@ -53,7 +71,7 @@
           <div class="settings-bottom"><p id="theme-status" role="status" aria-live="polite">Graphite selected.</p><button class="reset" type="button" id="reset-theme">Reset to Graphite</button></div>
         </form>
       </section>
-      <noscript><p class="no-script">Enable JavaScript to use Settings and switch color themes.</p></noscript>
+      <noscript><p class="no-script">Enable JavaScript to switch sections and color themes. The About me links still work below.</p></noscript>
     </main>
     <footer><span>Ryan Harwick <span class="footer-dot">/</span> A work in progress.</span><a href="index.html" target="_top">Design studies ↗</a></footer>
   </div>
